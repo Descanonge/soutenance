@@ -1,0 +1,93 @@
+
+\NeedsTeXFormat{LaTeX2e} %chktex 44
+\ProvidesPackage{soutenance}[2023/05/19 Soutenance]
+\RequirePackage{expl3}
+\RequirePackage{xparse}
+% \RequirePackage{l3keys2e}
+% \RequirePackage{calc}
+% \RequirePackage{etoolbox}
+
+\RequirePackage[T1]{fontenc}
+
+\RequirePackage[english, main=french]{babel}
+\RequirePackage{csquotes}
+
+% \RequirePackage[backend=biber]{biblatex}
+
+%%% Fonts
+% Would advise for a sans-serif font for a presentation
+% A nice selection of open-source fonts can be found here:
+% https://en.wikipedia.org/wiki/Open-source_Unicode_typefaces
+\RequirePackage[mono, sfdefault]{notomath}
+
+%%% Colors
+\RequirePackage{xcolor}
+% Define some color picked from 'bright' https://personal.sron.nl/~pault/
+\definecolor{tolblue}{HTML}{0077BB}
+\definecolor{tolcyan}{HTML}{66CCEE}
+\definecolor{tolgreen}{HTML}{009988}
+\definecolor{tolred}{HTML}{CC3311}
+\definecolor{tolyellow}{HTML}{CCBB44}
+
+% Define basic colors
+\setbeamercolor*{normal text}{fg=black}
+\setbeamercolor*{example text}{fg=tolgreen}
+\setbeamercolor*{alerted text}{fg=tolred}
+\setbeamercolor*{structure}{fg=tolblue}
+
+\setbeamercolor*{titlelike}{fg=white, bg=tolblue}
+
+% Alert text is also bold
+\setbeamerfont*{alerted text}{series=\bfseries}
+
+% No navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%%% Title frame
+
+\setbeamerfont{title}{shape=\scshape}
+\setbeamercolor{direction}{parent=author}
+
+% Setup a new \direction command
+\ExplSyntaxOn
+\tl_new:N \phd_direction_tl
+\NewDocumentCommand \direction { +m }{
+  \tl_set:Nn \phd_direction_tl {#1}
+}
+\cs_new_nopar:Npn \insertdirection {\phd_direction_tl}
+\ExplSyntaxOff
+
+\defbeamertemplate*{title page}{phd}[1][] % star version make it the default
+{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,#1]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%
+    \end{beamercolorbox}%
+    \vskip1em\par
+    {\small\textit{défense de thèse de doctorat}}\par
+    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center,#1]{direction}
+      {\small\textit{dirigée par\ }}%
+      \usebeamerfont{direction}\insertdirection
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    % \begin{beamercolorbox}[sep=8pt,center,#1]{date}
+    %   \usebeamerfont{date}\insertdate
+    % \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
