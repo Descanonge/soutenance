@@ -1,0 +1,19 @@
+#+title: Todo
+
+
+* idée plan
+question: quels sont les impacts des fronts ?
+- dans la région subtropicale (correspond au HI faible)
+- dans la région Gulf Stream (correspond hi faible / fort)
+- dans la région subpolaire (bloom)
+
+* Animations (vidéos)
+** bloom propagating north
+with histogram of lon-avg on the side ?
+** region separation
+with lingering trace of sep threshold ?
+
+* Animations (slides)
+** DONE Schéma frontogénèse / circ. sec.
+** Détection phénologie méthode
+** Détection phénologie comparaison bkg / frt

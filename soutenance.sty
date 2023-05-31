@@ -20,6 +20,16 @@
 % https://en.wikipedia.org/wiki/Open-source_Unicode_typefaces
 \RequirePackage[mono, sfdefault]{notomath}
 
+\RequirePackage{graphicx}
+\graphicspath{{resources}}
+
+% include multistep plot
+\ExplSyntaxOn
+\NewDocumentCommand \multigraph { O{} m m }{
+  \int_step_inline:nn {#2} {\includegraphics<##1>[#1]{#3/##1.pdf}}
+}
+\ExplSyntaxOff
+
 %%% Colors
 \RequirePackage{xcolor}
 % Define some color picked from 'bright' https://personal.sron.nl/~pault/
@@ -43,10 +53,13 @@
 % No navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
+\setbeamertemplate{footline}[frame number]
+
 %%% Title frame
 
 \setbeamerfont{title}{shape=\scshape}
 \setbeamercolor{direction}{parent=author}
+\setbeamerfont*{institute}{parent=author, size=\small}
 
 % Setup a new \direction command
 \ExplSyntaxOn
@@ -59,10 +72,28 @@
 
 \defbeamertemplate*{title page}{phd}[1][] % star version make it the default
 {
-  \vbox{}
+  \addvspace{0pt}
   \vfill
   \begingroup
     \centering
+    \par\def\logosheight{2.5em}
+    \includegraphics[height=\logosheight]{Logos/sorbonne.pdf}
+    \hfill
+    \includegraphics[height=\logosheight]{Logos/locean.png}
+    \hfill
+    \includegraphics[height=\logosheight]{Logos/ipsl.png}
+    \hfill
+    \includegraphics[height=\logosheight]{Logos/chanel_enspsl.png}
+
+    \vskip1.5em\par
+    \begin{beamercolorbox}[sep=0pt, center]{}
+      {\small
+        Défense de thèse de doctorat Sorbonne Université\\
+        ED 129 -- Sciences et Environnement\/}
+    \end{beamercolorbox}
+
+    \vspace{\stretch{1}}
+
     \begin{beamercolorbox}[sep=8pt,center,#1]{title}
       \usebeamerfont{title}\inserttitle\par%
       \ifx\insertsubtitle\@empty%
@@ -71,23 +102,32 @@
         {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
       \fi%
     \end{beamercolorbox}%
-    \vskip1em\par
-    {\small\textit{défense de thèse de doctorat}}\par
-    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+
+    \vspace{\stretch{1}}
+
+    \begin{beamercolorbox}[sep=2pt,center,#1]{author}
+      \makebox[0pt][r]{\footnotesize\itshape par\space\/}%
       \usebeamerfont{author}\insertauthor
     \end{beamercolorbox}
-    \vskip1em\par
-    \begin{beamercolorbox}[sep=8pt,center,#1]{direction}
-      {\small\textit{dirigée par\ }}%
+
+    \begin{beamercolorbox}[sep=2pt,center,#1]{direction}
+      \makebox[0pt][r]{\footnotesize\itshape dirigée par\space\/}%
       \usebeamerfont{direction}\insertdirection
     \end{beamercolorbox}
-    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+
+    \vspace{\stretch{1}}
+
+    \begin{beamercolorbox}[sep=2pt,center,#1]{institute}
+      \makebox[0pt][r]{\footnotesize\itshape au\space\/}%
       \usebeamerfont{institute}\insertinstitute
     \end{beamercolorbox}
+
+    \vspace{\stretch{1}}
+
     % \begin{beamercolorbox}[sep=8pt,center,#1]{date}
     %   \usebeamerfont{date}\insertdate
     % \end{beamercolorbox}\vskip0.5em
-    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    % {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
   \endgroup
   \vfill
 }
