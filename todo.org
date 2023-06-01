@@ -15,5 +15,5 @@ with lingering trace of sep threshold ?
 
 * Animations (slides)
 ** DONE Schéma frontogénèse / circ. sec.
-** Détection phénologie méthode
-** Détection phénologie comparaison bkg / frt
+** DONE Détection phénologie méthode
+** DONE Détection phénologie comparaison bkg / frt

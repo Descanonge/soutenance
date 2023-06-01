@@ -55,6 +55,26 @@
 
 \setbeamertemplate{footline}[frame number]
 
+% Parts title (really they are sections)
+\setbeamercolor{section title}{parent=title}
+\setbeamerfont{section title}{size=\large, series=\bfseries, shape=\scshape}
+
+\NewDocumentCommand \sectionframe { m } {
+  \begin{frame}[plain]
+    \addvspace{0pt}
+    \begin{center}
+      ~
+      \begin{beamercolorbox}[center, sep=8pt, wd=8em]{section title}
+        \usebeamerfont{section title}
+        Partie~#1
+      \end{beamercolorbox}
+      ~
+      \vskip1em\par%
+      \includegraphics[width=\linewidth]{parts_title/#1.pdf}%
+    \end{center}
+  \end{frame}
+}
+
 %%% Title frame
 
 \setbeamerfont{title}{shape=\scshape}
