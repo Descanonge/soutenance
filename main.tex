@@ -20,9 +20,17 @@
 
 \begin{document}
 
-\begin{frame}[plain, noframenumbering]
-  \titlepage%
-\end{frame}
+{
+  \usebackgroundtemplate{
+    \parbox[t][\paperheight]{\paperwidth}{
+    \vfill\par
+    \hfill
+    \includegraphics[width=0.7\paperwidth, height=0.7\paperheight, keepaspectratio]{title_background.jpg}}
+  }
+  \begin{frame}[plain, noframenumbering]
+    \titlepage%
+  \end{frame}
+}
 
 %% Préambule
 \begin{frame}{Phytoplancton ?}
@@ -47,7 +55,12 @@
 \section{Région subpolaire -- Phénologie du bloom}
 \sectionframe{3}
 
-\begin{frame}
+\begin{frame}{Chronométrer le bloom: démarrage et durée}
+  \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{9}{phenologie_méthode}
+\end{frame}
+
+\begin{frame}{Différences de phénologie entre background et fronts}
+  \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{4}{phenologie_lag}
 \end{frame}
 
 \end{document}

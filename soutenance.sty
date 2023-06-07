@@ -30,6 +30,12 @@
 }
 \ExplSyntaxOff
 
+% Reduce margins size
+\setbeamersize{
+  text margin left=0.5cm,
+  text margin right=0.5cm,
+}
+
 %%% Colors
 \RequirePackage{xcolor}
 % Define some color picked from 'bright' https://personal.sron.nl/~pault/
@@ -125,20 +131,23 @@
 
     \vspace{\stretch{1}}
 
-    \begin{beamercolorbox}[sep=2pt,center,#1]{author}
-      \makebox[0pt][r]{\footnotesize\itshape par\space\/}%
+    \begin{beamercolorbox}[sep=2pt,left,#1]{author}
+      % \makebox[0pt][r]{\footnotesize\itshape par\space\/}%
+      {\footnotesize\itshape par\space\/}%
       \usebeamerfont{author}\insertauthor
     \end{beamercolorbox}
 
-    \begin{beamercolorbox}[sep=2pt,center,#1]{direction}
-      \makebox[0pt][r]{\footnotesize\itshape dirigée par\space\/}%
+    \begin{beamercolorbox}[sep=2pt,left,#1]{direction}
+      % \makebox[0pt][r]{\footnotesize\itshape dirigée par\space\/}%
+      {\footnotesize\itshape dirigée par\space\/}%
       \usebeamerfont{direction}\insertdirection
     \end{beamercolorbox}
 
     \vspace{\stretch{1}}
 
-    \begin{beamercolorbox}[sep=2pt,center,#1]{institute}
-      \makebox[0pt][r]{\footnotesize\itshape au\space\/}%
+    \begin{beamercolorbox}[sep=2pt,left,#1]{institute}
+      % \makebox[0pt][r]{\footnotesize\itshape au\space\/}%
+      {\footnotesize\itshape au\space\/}%
       \usebeamerfont{institute}\insertinstitute
     \end{beamercolorbox}
 
