@@ -1,10 +1,10 @@
 
-\NeedsTeXFormat{LaTeX2e} %chktex 44
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{soutenance}[2023/05/19 Soutenance]
 \RequirePackage{expl3}
 \RequirePackage{xparse}
 % \RequirePackage{l3keys2e}
-% \RequirePackage{calc}
+\RequirePackage{calc}
 % \RequirePackage{etoolbox}
 
 \RequirePackage[T1]{fontenc}
@@ -23,11 +23,50 @@
 \RequirePackage{graphicx}
 \graphicspath{{resources}}
 
+\RequirePackage{hyperref}
+
+\RequirePackage{bookmark}
+
 % include multistep plot
 \ExplSyntaxOn
 \NewDocumentCommand \multigraph { O{} m m }{
-  \int_step_inline:nn {#2} {\includegraphics<##1>[#1]{#3/##1.pdf}}
+  \int_step_inline:nn {#2 - 1} {
+    \includegraphics <##1> [#1] {#3/##1.pdf}
+  }
+  \includegraphics <#2-> [#1] {#3/#2.pdf}
 }
+
+\tl_new:N \beamerboxtitle_align_tl
+\keys_define:nn { beamerboxtitle }{
+  left   .code:n = {\raggedright},
+  right  .code:n = {\raggedleft},
+  center .code:n = {\centering},
+  center .initial:n = {true},
+  wpad .dim_set:N = \beamerboxtitle_wpad_dim,
+  wpad .initial:n = {8pt},
+  hpad .dim_set:N = \beamerboxtitle_hpad_dim,
+  hpad .initial:n = {8pt},
+}
+
+\setbeamercolor{box title}{bg=tolblue, fg=white}
+\setbeamerfont{box title}{size=\large, series=\bfseries, shape=\scshape}
+\NewDocumentCommand \boxtitle { O{} m }{%
+  {
+    \keys_set:nn {beamerboxtitle}{#1}
+    \use:c{\beamerboxtitle_align_tl}
+    \setlength{\fboxsep}{\dim_use:N \beamerboxtitle_hpad_dim}
+    \usebeamercolor{box title}
+    \colorbox{bg}{
+      \color{fg}{
+        \usebeamerfont{box title}
+        \par
+        \makebox[\width + \beamerboxtitle_wpad_dim - \fboxsep]{#2}
+        \par
+      }
+    }
+  }
+}
+
 \ExplSyntaxOff
 
 % Reduce margins size
@@ -51,6 +90,9 @@
 \setbeamercolor*{alerted text}{fg=tolred}
 \setbeamercolor*{structure}{fg=tolblue}
 
+\setbeamercovered{transparent=40}
+\renewcommand\emph[1]{\textbf{#1}}
+
 \setbeamercolor*{titlelike}{fg=white, bg=tolblue}
 
 % Alert text is also bold
@@ -67,17 +109,10 @@
 
 \NewDocumentCommand \sectionframe { m } {
   \begin{frame}[plain]
-    \addvspace{0pt}
-    \begin{center}
-      ~
-      \begin{beamercolorbox}[center, sep=8pt, wd=8em]{section title}
-        \usebeamerfont{section title}
-        Partie~#1
-      \end{beamercolorbox}
-      ~
-      \vskip1em\par%
-      \includegraphics[width=\linewidth]{parts_title/#1.pdf}%
-    \end{center}
+    \centering
+    \boxtitle{Partie~#1}
+    \vspace{1em}\par
+    \includegraphics[width=\linewidth]{parts_title/#1.pdf}%
   \end{frame}
 }
 

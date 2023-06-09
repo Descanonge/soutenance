@@ -4,6 +4,10 @@
 
 \usepackage{soutenance}
 
+\AtBeginDocument{%
+  \bookmark[named=FirstPage, level=subsection]{Title frame}%
+}
+
 \title{%
   Impact des Fronts sur le Phytoplancton\\
   dans la Région du Gulf Stream\\
@@ -33,17 +37,70 @@
 }
 
 %% Préambule
-\begin{frame}{Phytoplancton ?}
+\begin{frame}{Qu'est-ce que le phytoplancton}
+  photos du phyto pour montrer la biodiversité
+
+  souligner son importance avec schéma (simplifié) de la chaine trophique et du puit de carbone
 \end{frame}
 
-\begin{frame}{Problématiques}
+\begin{frame}{Observer le phytoplancton}
+  mesures in-situ + modèles, réprendre le schéma de Lévy 2023 (la partie du haut)
+
+  ouverture sur l'utilité des images satellites
+\end{frame}
+
+\begin{frame}{Le phytoplancton depuis l'espace}
+  schéma explicatif du principe des images sat de chloro
+\end{frame}
+
+\begin{frame}{Répartition du phytoplancton}
+  image sat (false colors) du phyto (fig 1 de la thèse)
+
+  commentaires sur les différences entre
+  \begin{itemize}
+    \item sud et nord du GS (grande échelle)
+    \item plus petites échelles (tourbillons, filaments, \alert{fronts})
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Influence des courants}
+  courants grande échelle: répartition des nutriments + biomes (figure répartition nitrate)
+
+  courants petite échelles
+\end{frame}
+
+\begin{frame}
+  \boxtitle{Problématiques}
+  \vspace{2em}
+
+  \begin{enumerate}
+    \setlength{\itemsep}{1em}
+    \item Quantifier la \emph{réponse de la chlorophylle-a} aux dynamiques \emph{frontales} dans la région du Gulf Stream
+    \uncover<2->{\item Influence de la \emph{saison}, du \emph{régime} biogéochimique, et de \emph{l’intensité} des fronts ?}
+    \uncover<3->{\item Détecter un \emph{bloom précoce} dans les fronts ?}
+  \end{enumerate}
 \end{frame}
 
 \section{Introduction}
 
+\subsection{Impact des fronts sur le phytoplanctons}
+\subsubsection{Upwelling de nutriments}
+
 \begin{frame}{Frontogénèse et remontée des nutriments}
   \centering
   \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{5}{front_circulation}
+\end{frame}
+
+\subsubsection{Modification de la phénologie du bloom}
+
+\begin{frame}{Déclenchement du bloom: hypothèse de Sverdrup}
+
+\end{frame}
+
+\begin{frame}{Modification de la phénologie du bloom}
+  seulement dans un modèle (même si forcé par observations)
+
+  plot de Mahadevan 2012
 \end{frame}
 
 \section{Région subtropicale -- Augmentation de la Chlorophylle dans les fronts}
@@ -61,6 +118,20 @@
 
 \begin{frame}{Différences de phénologie entre background et fronts}
   \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{4}{phenologie_lag}
+\end{frame}
+
+\begin{frame}{Décalage du \emph{démarrage} du bloom}
+  \multigraph[width=0.95\textwidth]{7}{bloom}
+
+  \begin{overlayarea}{\textwidth}{2\baselineskip}
+    \only<6->{fit pour les fronts faibles: \(-6.7 \pm 1.1\) jours}
+    \\
+    \only<7->{fit pour les fronts forts: \(-13.5 \pm 1.5\) jours}
+  \end{overlayarea}
+\end{frame}
+
+\begin{frame}
+  C'est la fin
 \end{frame}
 
 \end{document}
