@@ -15,10 +15,30 @@
 % \RequirePackage[backend=biber]{biblatex}
 
 %%% Fonts
-% Would advise for a sans-serif font for a presentation
+% I would advise for a sans-serif font for a presentation
 % A nice selection of open-source fonts can be found here:
 % https://en.wikipedia.org/wiki/Open-source_Unicode_typefaces
-\RequirePackage[mono, sfdefault]{notomath}
+% I choosed NotoSans, that can simply be loaded with \usepackage{notomath},
+% but I want to use semi-bold weight, so I need do stuff manually
+\RequirePackage{fontspec}
+\setsansfont[
+  Extension=.ttf,
+  Ligatures=TeX,
+  Scale=1,
+  Numbers={Proportional,Lining},
+  SmallCapsFeatures={Letters=SmallCaps},
+  UprightFont = *-Regular,
+  ItalicFont = *-Italic,
+  FontFace = {sb}{n}{*-SemiBold},
+  FontFace = {sb}{i}{*-SemiBoldItalic},
+  BoldFont = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+]{NotoSans}
+\DeclareRobustCommand\sbseries{\fontseries{sb}\selectfont}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+
+% Use sans-serif math
+\RequirePackage[notosans]{newtxmath}
 
 \RequirePackage{graphicx}
 \graphicspath{{resources}}
@@ -96,6 +116,8 @@
 
 %%% Various templaes
 \setbeamercolor*{titlelike}{fg=white, bg=tolblue}
+\setbeamerfont{frametitle}{series=\sbseries}
+
 % emph is bold
 \let\emph\strong
 
