@@ -1,5 +1,22 @@
 #+title: Todo
 
+* admin
+** voyage aida
+*** WAIT réponse admin pour document
+envoyé vendredi
+** bar
+réservation pour ~20?
+** pot
+*** TODO Réserver tables
+*** TODO Réserver flutes
+*** TODO Demander parent apporter
+- Vin de bordeaux
+- Cannelets
+*** TODO Trouver traiteur
+- grotte de chypre ?
+- le truc des tartes ?
+- le thai / viet ?
+* TODO truc pour handout / presentation mode
 
 * idée plan
 question: quels sont les impacts des fronts ?

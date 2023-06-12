@@ -16,7 +16,7 @@ fi
 
 name="$(basename "$infile" .svg)"
 basedir="$(dirname "$infile")"
-outdir="${basedir}/${name}"
+outdir="${basedir}/_${name}"
 
 mkdir -p "${outdir}"
 cp "$infile" "${outdir}/"

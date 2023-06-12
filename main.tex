@@ -1,6 +1,3 @@
-% chktex-file 8
-
-\documentclass[11pt, french]{beamer}
 
 \usepackage{soutenance}
 
@@ -24,6 +21,7 @@
 
 \begin{document}
 
+%% Title frame
 {
   \usebackgroundtemplate{
     \parbox[t][\paperheight]{\paperwidth}{
@@ -36,18 +34,56 @@
   \end{frame}
 }
 
-%% Préambule
-\begin{frame}{Qu'est-ce que le phytoplancton}
-  photos du phyto pour montrer la biodiversité
+\section{Introduction}
 
-  souligner son importance avec schéma (simplifié) de la chaine trophique et du puit de carbone
+\begin{frame}
+  \frametitle{Qu'est-ce que le phytoplancton ?}
+  {
+    \centering
+    \multigraph{4}{intro_cycles}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{L'importance de la verticale}
+  {
+    \centering
+    \multigraph{4}{intro_verticale}
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Répartition horizontale du phytoplancton}
+  \begin{beamercolorbox}[sep=0pt, right]{}
+    \includegraphics[width=0.7\textwidth]{composite.jpg}
+    \\
+    {\footnotesize Image fausses couleurs MODIS-Terra 23-02-2020}
+  \end{beamercolorbox}
+
+  \vfill
+
+  \begin{beamercolorbox}[sep=0pt]{}
+    Variations à:
+    \begin{itemize}
+      \item \emph{grandes échelles}: Nord/Sud du Gulf Stream
+      \item<+-> \emph{fines échelles}: Tourbillons, filaments, \alert{fronts}
+    \end{itemize}
+  \end{beamercolorbox}
 \end{frame}
 
 \begin{frame}
   \frametitle{Observer le phytoplancton}
-  mesures in-situ + modèles, réprendre le schéma de Lévy 2023 (la partie du haut)
+  {
+    \centering
+    \multigraph[width=\textwidth]{4}{levy_2023_fig1}
+  }
 
-  ouverture sur l'utilité des images satellites
+  \begin{itemize}
+    \item<2-> Mesures in-situ
+    \item<3-> Modèles numériques biogéochimiques
+    \item<4-> \emph{Images satellites}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -56,22 +92,33 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Répartition du phytoplancton}
-  image sat (false colors) du phyto (fig 1 de la thèse)
-
-  commentaires sur les différences entre
-  \begin{itemize}
-    \item sud et nord du GS (grande échelle)
-    \item plus petites échelles (tourbillons, filaments, \alert{fronts})
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
   \frametitle{Influence des courants}
   courants grande échelle: répartition des nutriments + biomes (figure répartition nitrate)
 
   courants petite échelles
 \end{frame}
+
+\subsubsection{}
+
+\begin{frame}
+  \frametitle{Déclenchement du bloom}
+  \framesubtitle{hypothèse de Sverdrup}
+  importance de la profondeur de la couche de mélange
+
+  restratification au printemps
+
+  accompagner d'un schéma ?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Modification de la phénologie du bloom}
+  seulement dans un modèle (même si forcé par observations)
+
+  \includegraphics[width=0.4\textwidth]{mahadevan_2012_fig3.pdf}
+  Mahadevan et al.\ (2012)
+\end{frame}
+
+
 
 \begin{frame}
   \boxtitle{Problématiques}
@@ -85,8 +132,6 @@
   \end{enumerate}
 \end{frame}
 
-\section{Introduction}
-
 \subsection{Impact des fronts sur le phytoplanctons}
 \subsubsection{Upwelling de nutriments}
 
@@ -96,28 +141,65 @@
   \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{5}{front_circulation}
 \end{frame}
 
-\subsubsection{Modification de la phénologie du bloom}
-
 \begin{frame}
-  \frametitle{Déclenchement du bloom: hypothèse de Sverdrup}
+  \frametitle{Quantification de l'apport de nutriments}
 
-\end{frame}
-
-\begin{frame}
-  \frametitle{Modification de la phénologie du bloom}
-  seulement dans un modèle (même si forcé par observations)
-
-  plot de Mahadevan 2012
 \end{frame}
 
 \section{Région subtropicale -- Augmentation de la Chlorophylle dans les fronts}
 \sectionframe{1}
+
+\begin{frame}
+  \frametitle{Détecter les fronts par satellite}
+  on veut fronts de densité -> lié à la température -> on utilise la SST
+
+  pleins de méthodes (lister quelques unes)
+\end{frame}
+
+\begin{frame}
+  \frametitle{Méthode du “Heterogeneity-index”}
+
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \begin{itemize}
+        \item adapté de Liu et Levine (2016)
+        \item repose sur une fenêtre glissante
+        \item utilise \emph{trois composantes}
+              \begin{itemize}
+                \item l'écart-type \(\sigma\)
+                \item l'asymétrie \(\gamma\)
+                \item la bimodalité B
+              \end{itemize}
+      \end{itemize}
+    \end{column}
+    \hfill
+    \begin{column}{0.45\textwidth}
+      \(HI = a \left( b\sigma + c\gamma + dB \right)\)
+      \\
+      {\small \(a\), \(b\), \(c\), \(d\) étant des coefficients de normalisation}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Données utilisées}
+
+  ajouter quelques plots pour montrer les diffs
+
+  \begin{itemize}
+    \item SST: ESA-SST-CCI / C3S, journalières, 4km, L4
+    \item Chl-a: Copernicus-Globcolour, journalières, 4km, L3
+  \end{itemize}
+
+\end{frame}
 
 \section{Région du Gulf-Stream -- Intensité des fronts}
 \sectionframe{2}
 
 \section{Région subpolaire -- Phénologie du bloom}
 \sectionframe{3}
+
 
 \begin{frame}
   \frametitle{Chronométrer le bloom: démarrage et durée}
@@ -131,7 +213,9 @@
 
 \begin{frame}
   \frametitle{Décalage du \emph{\textit{démarrage}} du bloom}
-  \multigraph[width=0.95\textwidth]{7}{bloom}
+  \multigraph[width=0.85\textwidth]{7}{bloom}
+
+  \vfill
 
   \begin{overlayarea}{\textwidth}{2\baselineskip}
     \only<6->{fit pour les fronts faibles: \(-6.7 \pm 1.1\) jours}
@@ -143,11 +227,33 @@
 \begin{frame}
   \frametitle{Décalage de la \emph{\textit{durée}} du bloom}
   \includegraphics[
-  width=0.90\textwidth, height=0.8\textheight,
+  width=0.90\textwidth, height=0.7\textheight,
   keepaspectratio]{durée_bloom.pdf}
+
+  \vfill
 
   Blooms plus \emph{longs} dans les \emph{fronts}, mais moins significatif
 \end{frame}
+
+\section{Conclusions}
+
+\begin{frame}
+  \frametitle{Conclusions}
+
+\end{frame}
+
+\section{Perspectives}
+\begin{frame}
+  \frametitle{Perspectives}
+
+  \begin{itemize}
+    \item vers le global
+    \item vers les PFT (plus que déjà?)
+    \item nécessité de développer outils de détection de fronts
+  \end{itemize}
+
+\end{frame}
+
 
 \begin{frame}
   C'est la fin
