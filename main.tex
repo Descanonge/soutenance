@@ -66,7 +66,7 @@
   \frametitle{Observer le phytoplancton}
   {
     \centering
-    \multigraph[width=\textwidth]{4}{levy_2023_fig1}
+    \multigraphnew[width=\textwidth]{4}{levy_2023_fig1}
   }
 
   \begin{itemize}
@@ -99,9 +99,9 @@
 
   \begin{beamercolorbox}[sep=0pt]{}
     Variations à:
-    \begin{itemize}
+    \begin{itemize}[<+->]
       \item \emph{grandes échelles}: Nord/Sud du Gulf Stream
-      \item<+-> \emph{fines échelles}: Tourbillons, filaments, \alert{fronts}
+      \item \emph{fines échelles}: Tourbillons, filaments, \alert{fronts}
     \end{itemize}
   \end{beamercolorbox}
 \end{frame}
@@ -120,7 +120,13 @@
 \begin{frame}
   \frametitle{Frontogénèse et remontée des nutriments}
   \centering
-  \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{5}{front_circulation}
+  \includegraphics[height=0.8\textheight]{_front_circulation/1.pdf}%
+  \llap{\includegraphics<5>[height=0.8\textheight]{_front_circulation/6.pdf}}%
+  \llap{\includegraphics<1->[height=0.8\textheight]{_front_circulation/2.pdf}}%
+  \llap{\includegraphics<2->[height=0.8\textheight]{_front_circulation/3.pdf}}%
+  \llap{\includegraphics<3->[height=0.8\textheight]{_front_circulation/4.pdf}}%
+  \llap{\includegraphics<4->[height=0.8\textheight]{_front_circulation/5.pdf}}%
+  \llap{\includegraphics<6>[height=0.8\textheight]{_front_circulation/7.pdf}}%
 \end{frame}
 
 %% --------------------------------------
@@ -128,7 +134,7 @@
 \begin{frame}
   \frametitle{Quantification de l'apport de nutriments}
 
-
+  littérature
 
 \end{frame}
 
@@ -160,7 +166,7 @@
   \frametitle{Région d'étude: autour du Gulf Stream}
 
   \onslide<1->{plusieurs \strong{biorégions}}
-  \onslide<2->{, fronts d'intensité variée}
+  \onslide<2->{, fronts d'intensités variées}
 
   \vfill
 
@@ -186,9 +192,6 @@
 \end{frame}
 
 %% --------------------------------------
-
-\section{Région subtropicale -- Augmentation de la Chlorophylle dans les fronts}
-\sectionframe{1}
 
 \begin{frame}
   \frametitle{Détecter les fronts par satellite}
@@ -221,18 +224,71 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Données utilisées}
+  \frametitle{Données utilisées: SST}
 
-  ajouter quelques plots pour montrer les diffs
+  \begin{block}{Choisie dans la suite}
+    \begin{itemize}
+      \item ESA-SST-CCI / C3S
+      \item journalières, 4km
+      \item L4: interpolation spatiale de multicapteurs IR, pas de nuages
+    \end{itemize}
+  \end{block}
 
-  \begin{itemize}
-    \item SST: ESA-SST-CCI / C3S, journalières, 4km, L4
-    \item Chl-a: Copernicus-Globcolour, journalières, 4km, L3
-  \end{itemize}
+  \begin{block}{Aussi considérées}
+    \begin{itemize}
+      \item MODIS projetée à 1km (seulement 2 capteurs, difficile)
+      \item Multiscale Ultrahigh Resolution, 1km
+      \item Réanalyse Mercator GLORYS, 12km (différences importantes avec autres produits)
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Données utilisées: Chl-a}
+
+  \begin{block}{Choisie dans la suite}
+    \begin{itemize}
+      \item Copernicus-Globcolour,
+      \item journalières, 4km
+      \item L3: multicapteurs, avec nuages
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Aussi considérées}
+    \begin{itemize}
+      \item MODIS projetée à 1km
+      \item ESA-OC-CCI / C3S, équivalent
+    \end{itemize}
+  \end{block}
 
 \end{frame}
 
 %% --------------------------------------
+
+\begin{frame}
+  \frametitle{Résultats: Évolution de la Chl-a avec le HI}
+  \includegraphics[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{results/chl_vs_hi.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Occurence des fronts}
+  \includegraphics[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{results/fronts_occurrence.pdf}
+
+  \vfill
+
+  \begin{block}{}
+
+  \end{block}
+
+\end{frame}
+
+\section{Région subtropicale -- Augmentation de la Chlorophylle dans les fronts}
+\sectionframe{1}
 
 \section{Région du Gulf-Stream -- Intensité des fronts}
 \sectionframe{2}

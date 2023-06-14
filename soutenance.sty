@@ -50,6 +50,17 @@
 %%% Multigraph
 % include multistep plot
 \ExplSyntaxOn
+\NewDocumentCommand \multigraphnew { O{} m m }{
+  \includegraphics[#1]{_#3/1.pdf}
+  \int_step_inline:nnn {1} {#2} {
+    \llap{ \includegraphics <##1-> [#1] {_#3/##1.pdf} }
+  }
+}
+
+% \NewDocumentCommand \multigraphlayout { m m m }{
+% }
+
+% Old version, every graph is unique
 \NewDocumentCommand \multigraph { O{} m m }{
   \int_step_inline:nn {#2 - 1} {
     \includegraphics <##1 | handout:0> [#1] {_#3/##1.pdf}
