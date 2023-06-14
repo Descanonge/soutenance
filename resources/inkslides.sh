@@ -20,4 +20,4 @@ outdir="${basedir}/_${name}"
 
 mkdir -p "${outdir}"
 cp "$infile" "${outdir}/"
-python "${basedir}/inkscape-slide.py" "${outdir}/${name}.svg" --format "${outdir}/{1:d}.pdf"
+python "${basedir}/inkscape-slide.py" "${outdir}/${name}.svg" --format "${outdir}/{1:d}.pdf" --inkscape-args ''
