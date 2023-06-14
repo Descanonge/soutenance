@@ -133,14 +133,16 @@
 \setbeamercolor{section title}{parent=title}
 \setbeamerfont{section title}{size=\large, series=\bfseries, shape=\scshape}
 
+\ExplSyntaxOn
 \NewDocumentCommand \sectionframe { m } {
   \begin{frame}[plain]
     \centering
     \boxtitle{Partie~#1}
     \vspace{1em}\par
-    \includegraphics[width=\linewidth]{_parts_title/#1.pdf}%
+    \includegraphics[width=\linewidth]{_parts_title/\int_eval:n{#1 + 1}.pdf}%
   \end{frame}
 }
+\ExplSyntaxOff
 
 %%% Title frame
 

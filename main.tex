@@ -21,7 +21,7 @@
 
 \begin{document}
 
-%% Title frame
+%% Title frame --------------------------
 {
   \usebackgroundtemplate{
     \parbox[t][\paperheight]{\paperwidth}{
@@ -35,6 +35,9 @@
 }
 
 \section{Introduction}
+\subsection{Le phytoplancton}
+
+%% --------------------------------------
 
 \begin{frame}
   \frametitle{Qu'est-ce que le phytoplancton ?}
@@ -43,6 +46,8 @@
     \multigraph{4}{intro_cycles}
   }
 \end{frame}
+
+%% --------------------------------------
 
 \begin{frame}
   \frametitle{L'importance de la verticale}
@@ -53,24 +58,9 @@
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{Répartition horizontale du phytoplancton}
-  \begin{beamercolorbox}[sep=0pt, right]{}
-    \includegraphics[width=0.7\textwidth]{composite.jpg}
-    \\
-    {\footnotesize Image fausses couleurs MODIS-Terra 23-02-2020}
-  \end{beamercolorbox}
+%% --------------------------------------
 
-  \vfill
-
-  \begin{beamercolorbox}[sep=0pt]{}
-    Variations à:
-    \begin{itemize}
-      \item \emph{grandes échelles}: Nord/Sud du Gulf Stream
-      \item<+-> \emph{fines échelles}: Tourbillons, filaments, \alert{fronts}
-    \end{itemize}
-  \end{beamercolorbox}
-\end{frame}
+\subsection{Observation du phytoplancton}
 
 \begin{frame}
   \frametitle{Observer le phytoplancton}
@@ -86,10 +76,37 @@
   \end{itemize}
 \end{frame}
 
+%% --------------------------------------
+
 \begin{frame}
   \frametitle{Le phytoplancton depuis l'espace}
   schéma explicatif du principe des images sat de chloro
 \end{frame}
+
+%% --------------------------------------
+
+\subsection{Influence des courants}
+
+\begin{frame}
+  \frametitle{Répartition horizontale du phytoplancton}
+  \begin{beamercolorbox}[sep=0pt, right]{}
+    \includegraphics[width=0.7\textwidth, trim=180 400 0 200, clip]{composite.jpg}
+    \\
+    {\footnotesize Image fausses couleurs MODIS-Terra 23-02-2020}
+  \end{beamercolorbox}
+
+  \vfill
+
+  \begin{beamercolorbox}[sep=0pt]{}
+    Variations à:
+    \begin{itemize}
+      \item \emph{grandes échelles}: Nord/Sud du Gulf Stream
+      \item<+-> \emph{fines échelles}: Tourbillons, filaments, \alert{fronts}
+    \end{itemize}
+  \end{beamercolorbox}
+\end{frame}
+
+%% --------------------------------------
 
 \begin{frame}
   \frametitle{Influence des courants}
@@ -98,7 +115,24 @@
   courants petite échelles
 \end{frame}
 
-\subsubsection{}
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Frontogénèse et remontée des nutriments}
+  \centering
+  \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{5}{front_circulation}
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Quantification de l'apport de nutriments}
+
+
+
+\end{frame}
+
+%% --------------------------------------
 
 \begin{frame}
   \frametitle{Déclenchement du bloom}
@@ -110,6 +144,8 @@
   accompagner d'un schéma ?
 \end{frame}
 
+%% --------------------------------------
+
 \begin{frame}
   \frametitle{Modification de la phénologie du bloom}
   seulement dans un modèle (même si forcé par observations)
@@ -118,7 +154,24 @@
   Mahadevan et al.\ (2012)
 \end{frame}
 
+%% --------------------------------------
 
+\begin{frame}
+  \frametitle{Région d'étude: autour du Gulf Stream}
+
+  \onslide<1->{plusieurs \strong{biorégions}}
+  \onslide<2->{, fronts d'intensité variée}
+
+  \vfill
+
+  \includegraphics[
+  width=\textwidth, height=\textheight, keepaspectratio
+  ]{zone_separation.pdf}
+\end{frame}
+
+%% --------------------------------------
+
+\subsection{Problématiques}
 
 \begin{frame}
   \boxtitle{Problématiques}
@@ -132,55 +185,40 @@
   \end{enumerate}
 \end{frame}
 
-\subsection{Impact des fronts sur le phytoplanctons}
-\subsubsection{Upwelling de nutriments}
-
-\begin{frame}
-  \frametitle{Frontogénèse et remontée des nutriments}
-  \centering
-  \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{5}{front_circulation}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Quantification de l'apport de nutriments}
-
-\end{frame}
+%% --------------------------------------
 
 \section{Région subtropicale -- Augmentation de la Chlorophylle dans les fronts}
 \sectionframe{1}
 
 \begin{frame}
   \frametitle{Détecter les fronts par satellite}
-  on veut fronts de densité -> lié à la température -> on utilise la SST
 
-  pleins de méthodes (lister quelques unes)
+  \begin{block}{}
+    On utilise la \strong{SST} comme proxy de la densité
+  \end{block}
+
+  \begin{block}{}
+    Plusieurs méthodes existantes:
+    \begin{itemize}
+            \setlength{\itemsep}{1.2em}
+      \item “simple” dérivation: gradient, Sobel, Laplacien, \dots
+      \item filtrer auparavant: Canny (1986), Belkin--O'Reilly (2009)
+      \item fenêtre glissante: Cayula--Cornillon (1992), Nieto et al. (2012), Miller (2009), \strong{Liu \& Levine (2016)}
+    \end{itemize}
+  \end{block}
 \end{frame}
+
+%% --------------------------------------
 
 \begin{frame}
   \frametitle{Méthode du “Heterogeneity-index”}
-
-  \begin{columns}
-    \begin{column}{0.45\textwidth}
-      \begin{itemize}
-        \item adapté de Liu et Levine (2016)
-        \item repose sur une fenêtre glissante
-        \item utilise \emph{trois composantes}
-              \begin{itemize}
-                \item l'écart-type \(\sigma\)
-                \item l'asymétrie \(\gamma\)
-                \item la bimodalité B
-              \end{itemize}
-      \end{itemize}
-    \end{column}
-    \hfill
-    \begin{column}{0.45\textwidth}
-      \(HI = a \left( b\sigma + c\gamma + dB \right)\)
-      \\
-      {\small \(a\), \(b\), \(c\), \(d\) étant des coefficients de normalisation}
-    \end{column}
-  \end{columns}
+  \onslide<1->{Fenêtre glissante}\onslide<2->{, dans laquelle on calcule 3 composantes}
+  \\[1em]
+  \multigraph[height=0.8\textheight]{4}{zoom_front}
 
 \end{frame}
+
+%% --------------------------------------
 
 \begin{frame}
   \frametitle{Données utilisées}
@@ -194,6 +232,8 @@
 
 \end{frame}
 
+%% --------------------------------------
+
 \section{Région du Gulf-Stream -- Intensité des fronts}
 \sectionframe{2}
 
@@ -206,10 +246,14 @@
   \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{9}{phenologie_méthode}
 \end{frame}
 
+%% --------------------------------------
+
 \begin{frame}
   \frametitle{Différences de phénologie entre background et fronts}
   \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{4}{phenologie_lag}
 \end{frame}
+
+%% --------------------------------------
 
 \begin{frame}
   \frametitle{Décalage du \emph{\textit{démarrage}} du bloom}
@@ -224,6 +268,8 @@
   \end{overlayarea}
 \end{frame}
 
+%% --------------------------------------
+
 \begin{frame}
   \frametitle{Décalage de la \emph{\textit{durée}} du bloom}
   \includegraphics[
@@ -235,12 +281,16 @@
   Blooms plus \emph{longs} dans les \emph{fronts}, mais moins significatif
 \end{frame}
 
+%% --------------------------------------
+
 \section{Conclusions}
 
 \begin{frame}
   \frametitle{Conclusions}
 
 \end{frame}
+
+%% --------------------------------------
 
 \section{Perspectives}
 \begin{frame}
@@ -254,9 +304,10 @@
 
 \end{frame}
 
+%% --------------------------------------
 
 \begin{frame}
-  C'est la fin
+  Fin
 \end{frame}
 
 \end{document}
