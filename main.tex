@@ -34,7 +34,7 @@
   \end{frame}
 }
 
-\section{Introduction}
+\section*{Introduction}
 \subsection{Le phytoplancton}
 
 %% --------------------------------------
@@ -43,7 +43,7 @@
   \frametitle{Qu'est-ce que le phytoplancton ?}
   {
     \centering
-    \multigraph{4}{intro_cycles}
+    \multigraph{3}{intro_cycles}
   }
 \end{frame}
 
@@ -53,7 +53,9 @@
   \frametitle{L'importance de la verticale}
   {
     \centering
-    \multigraph{4}{intro_verticale}
+    \multigraph[
+    width=\textwidth, height=\textheight,keepaspectratio
+    ]{4}{intro_verticale}
   }
 
 \end{frame}
@@ -74,13 +76,6 @@
     \item<3-> Modèles numériques biogéochimiques
     \item<4-> \emph{Images satellites}
   \end{itemize}
-\end{frame}
-
-%% --------------------------------------
-
-\begin{frame}
-  \frametitle{Le phytoplancton depuis l'espace}
-  schéma explicatif du principe des images sat de chloro
 \end{frame}
 
 %% --------------------------------------
@@ -109,11 +104,33 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Influence des courants}
-  courants grande échelle: répartition des nutriments + biomes (figure répartition nitrate)
+  \frametitle{Influence des courants: Grande échelle}
 
-  courants petite échelles
+  \begin{block}{}
+    \includegraphics[width=\textwidth]{nutriments_global.pdf}
+  \end{block}
+  \textcolor{red}{je vais rajouter les courants sur le Gulf Stream}
 \end{frame}
+
+%% --------------------------------------
+
+{
+  \usebackgroundtemplate{
+    \parbox[t][\paperheight]{\paperwidth}{
+      \vfill\par
+      \includegraphics[
+      width=\textwidth, height=0.95\paperheight, keepaspectratio
+      ]{baltic_bloom.pdf}
+    }
+  }
+\begin{frame}
+  \frametitle{Influence des courants: Fines échelles}
+  \hspace{8cm}
+  \begin{minipage}{3cm}
+    Bloom dans la mer Baltique
+  \end{minipage}
+\end{frame}
+}
 
 %% --------------------------------------
 
@@ -144,8 +161,10 @@
   \frametitle{Déclenchement du bloom}
   \framesubtitle{hypothèse de Sverdrup}
   importance de la profondeur de la couche de mélange
+  \vspace{\baselineskip}
 
   restratification au printemps
+  \vspace{\baselineskip}
 
   accompagner d'un schéma ?
 \end{frame}
@@ -156,8 +175,11 @@
   \frametitle{Modification de la phénologie du bloom}
   seulement dans un modèle (même si forcé par observations)
 
-  \includegraphics[width=0.4\textwidth]{mahadevan_2012_fig3.pdf}
-  Mahadevan et al.\ (2012)
+  \begin{block}{}
+    \includegraphics[width=0.4\textwidth]{mahadevan_2012_fig3.pdf}
+    \\
+    Mahadevan et al.\ (2012)
+  \end{block}
 \end{frame}
 
 %% --------------------------------------
@@ -189,6 +211,14 @@
     \uncover<2->{\item Influence de la \emph{saison}, du \emph{régime} biogéochimique, et de \emph{l’intensité} des fronts ?}
     \uncover<3->{\item Détecter un \emph{bloom précoce} dans les fronts ?}
   \end{enumerate}
+\end{frame}
+
+%% --------------------------------------
+
+\section*{Méthodes}
+
+\begin{frame}
+  \boxtitle{Méthodes - Détection des fronts}
 \end{frame}
 
 %% --------------------------------------
@@ -267,35 +297,85 @@
 %% --------------------------------------
 
 \begin{frame}
+  \frametitle{Examples de fronts}
+
+  SST - HI - Chl-a
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
   \frametitle{Résultats: Évolution de la Chl-a avec le HI}
   \includegraphics[
   width=\textwidth, height=0.8\textheight, keepaspectratio
   ]{results/chl_vs_hi.pdf}
 \end{frame}
 
+%% --------------------------------------
+
 \begin{frame}
-  \frametitle{Occurence des fronts}
   \includegraphics[
   width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{results/fronts_occurrence.pdf}
-
-  \vfill
-
-  \begin{block}{}
-
-  \end{block}
-
+  ]{_parts_title/1.pdf}
 \end{frame}
+
+%% --------------------------------------
 
 \section{Région subtropicale -- Augmentation de la Chlorophylle dans les fronts}
 \sectionframe{1}
 
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Mesures de l'effet des fronts}
+  \includegraphics{fronts_delineation_single.pdf}
+  \\
+
+  \begin{block}{Excès}
+    déf
+  \end{block}
+
+  \begin{block}{Surplus}
+    déf
+  \end{block}
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Climatologies}
+  \includegraphics[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{results/ts_climatology.pdf}
+  \\
+  garder seulement la zone Sud
+\end{frame}
+
+%% --------------------------------------
+
 \section{Région du Gulf-Stream -- Intensité des fronts}
 \sectionframe{2}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Occurence des fronts}
+  \includegraphics{fronts_delineation.pdf}
+  \\
+  \vfill
+
+  \includegraphics[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{results/fronts_occurrence.pdf}
+
+\end{frame}
+
+%% --------------------------------------
 
 \section{Région subpolaire -- Phénologie du bloom}
 \sectionframe{3}
 
+%% --------------------------------------
 
 \begin{frame}
   \frametitle{Chronométrer le bloom: démarrage et durée}
