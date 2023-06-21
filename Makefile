@@ -13,19 +13,14 @@ AUXDIR_FLAGS := -auxdir="$(BUILD_DIR)" -emulate-aux-dir
 LMK_FLAGS := -lualatex -interaction=batchmode -recorder -quiet
 # 	-shell-escape
 
-.PHONY: all clean presentation handout
+.PHONY: all clean presentation
 
-all: handout presentation
+all: presentation
 
-handout: $(MAIN).tex $(HANDOUT_TEX).tex
+presentation: $(MAIN).tex
 	mkdir -p $(BUILD_DIR)
 	latexmk  $(LMK_FLAGS) $(AUXDIR_FLAGS) \
-		-jobname="handout" $(HANDOUT_TEX).tex
-
-presentation: $(MAIN).tex $(PRESENT_TEX).tex
-	mkdir -p $(BUILD_DIR)
-	latexmk  $(LMK_FLAGS) $(AUXDIR_FLAGS) \
-		-jobname="presentation" $(PRESENT_TEX).tex
+		-jobname="presentation" $(MAIN).tex
 
 clean:
 	rm -rf $(BUILD_DIR)

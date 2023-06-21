@@ -5,7 +5,7 @@
 \RequirePackage{xparse}
 % \RequirePackage{l3keys2e}
 \RequirePackage{calc}
-% \RequirePackage{etoolbox}
+\RequirePackage{etoolbox}
 
 \RequirePackage[T1]{fontenc}
 
@@ -44,13 +44,12 @@
 \graphicspath{{resources}}
 
 \RequirePackage{hyperref}
-
 \RequirePackage{bookmark}
 
 %%% Multigraph
 % include multistep plot
 \ExplSyntaxOn
-\NewDocumentCommand \multigraphnew { O{} m m }{
+\NewDocumentCommand \multigraphtrans { O{} m m }{
   \includegraphics[#1]{_#3/1.pdf}
   \int_step_inline:nnn {1} {#2} {
     \llap{ \includegraphics <##1-> [#1] {_#3/##1.pdf} }
@@ -138,7 +137,18 @@
 % No navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
-\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{footline}{%
+  {%
+    \leavevmode%
+    \hfill%
+    \hbox{%
+        \usebeamerfont{footline}%
+        \insertframenumber\,/\,\inserttotalframenumber%
+        \hspace{2pt}%
+    }%
+    \vskip2pt%
+  }%
+}
 
 % Parts title (really they are sections)
 \setbeamercolor{section title}{parent=title}
@@ -185,14 +195,14 @@
     \hfill
     \includegraphics[height=\logosheight]{Logos/chanel_enspsl.png}
 
-    \vskip1.5em\par
+    \vskip1.2em\par
     \begin{beamercolorbox}[sep=0pt, center]{}
       {\small
         Défense de thèse de doctorat Sorbonne Université\\
         ED 129 -- Sciences et Environnement\/}
     \end{beamercolorbox}
 
-    \vspace{\stretch{1}}
+    \vspace{\stretch{2}}
 
     \begin{beamercolorbox}[sep=8pt,center,#1]{title}
       \usebeamerfont{title}\inserttitle\par%
@@ -203,7 +213,7 @@
       \fi%
     \end{beamercolorbox}%
 
-    \vspace{\stretch{1}}
+    \vspace{\stretch{2}}
 
     \begin{beamercolorbox}[sep=2pt,left,#1]{author}
       % \makebox[0pt][r]{\footnotesize\itshape par\space\/}%
@@ -232,5 +242,9 @@
     % \end{beamercolorbox}\vskip0.5em
     % {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
   \endgroup
-  \vfill
 }
+
+%%% Bookmark at frame
+\addtobeamertemplate{frametitle}{%
+  \only<1>{\bookmark[page=\the\c@page,level=4]{\insertframetitle}}
+}{}

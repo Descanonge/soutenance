@@ -1,3 +1,4 @@
+\documentclass[11pt, french, aspectratio=32]{beamer}
 
 \usepackage{soutenance}
 
@@ -54,7 +55,7 @@
   {
     \centering
     \multigraph[
-    width=\textwidth, height=\textheight,keepaspectratio
+    width=\textwidth, height=\textheight, keepaspectratio
     ]{4}{intro_verticale}
   }
 
@@ -68,7 +69,7 @@
   \frametitle{Observer le phytoplancton}
   {
     \centering
-    \multigraphnew[width=\textwidth]{4}{levy_2023_fig1}
+    \multigraphtrans[width=\textwidth]{4}{levy_2023_fig1}
   }
 
   \begin{itemize}
@@ -109,7 +110,7 @@
   \begin{block}{}
     \includegraphics[width=\textwidth]{nutriments_global.pdf}
   \end{block}
-  \textcolor{red}{je vais rajouter les courants sur le Gulf Stream}
+  \textcolor{red}{rajouter les courants sur le Gulf Stream}
 \end{frame}
 
 %% --------------------------------------
@@ -126,8 +127,12 @@
 \begin{frame}
   \frametitle{Influence des courants: Fines échelles}
   \hspace{8cm}
-  \begin{minipage}{3cm}
-    Bloom dans la mer Baltique
+  \begin{minipage}{3.2cm}
+    {\raggedright
+      Bloom dans la mer Baltique
+      \\[1em]
+      {\small Image fausses couleurs par Sentinel-2 (20-07-2019)}
+    }
   \end{minipage}
 \end{frame}
 }
@@ -144,6 +149,8 @@
   \llap{\includegraphics<3->[height=0.8\textheight]{_front_circulation/4.pdf}}%
   \llap{\includegraphics<4->[height=0.8\textheight]{_front_circulation/5.pdf}}%
   \llap{\includegraphics<6>[height=0.8\textheight]{_front_circulation/7.pdf}}%
+
+  \onslide<5>{appuyer l'importance de l'intensité du front / circulation verticale ?}
 \end{frame}
 
 %% --------------------------------------
@@ -161,10 +168,10 @@
   \frametitle{Déclenchement du bloom}
   \framesubtitle{hypothèse de Sverdrup}
   importance de la profondeur de la couche de mélange
-  \vspace{\baselineskip}
+  \\[1em]
 
   restratification au printemps
-  \vspace{\baselineskip}
+  \\[1em]
 
   accompagner d'un schéma ?
 \end{frame}
@@ -222,6 +229,9 @@
 \end{frame}
 
 %% --------------------------------------
+%%
+
+\subsection{Méthodes existantes}
 
 \begin{frame}
   \frametitle{Détecter les fronts par satellite}
@@ -247,8 +257,7 @@
   \frametitle{Méthode du “Heterogeneity-index”}
   \onslide<1->{Fenêtre glissante}\onslide<2->{, dans laquelle on calcule 3 composantes}
   \\[1em]
-  \multigraph[height=0.8\textheight]{4}{zoom_front}
-
+  \multigraphtrans[height=0.75\textheight]{4}{zoom_front}
 \end{frame}
 
 %% --------------------------------------
@@ -264,13 +273,9 @@
     \end{itemize}
   \end{block}
 
-  \begin{block}{Aussi considérées}
-    \begin{itemize}
-      \item MODIS projetée à 1km (seulement 2 capteurs, difficile)
-      \item Multiscale Ultrahigh Resolution, 1km
-      \item Réanalyse Mercator GLORYS, 12km (différences importantes avec autres produits)
-    \end{itemize}
-  \end{block}
+  \vfill
+
+  \includegraphics[height=0.5\textheight]{comparaison_sst.pdf}
 
 \end{frame}
 
@@ -285,38 +290,54 @@
     \end{itemize}
   \end{block}
 
-  \begin{block}{Aussi considérées}
-    \begin{itemize}
-      \item MODIS projetée à 1km
-      \item ESA-OC-CCI / C3S, équivalent
-    \end{itemize}
-  \end{block}
+  \vfill
+
+  \includegraphics[height=0.5\textheight]{comparaison_chl.pdf}
 
 \end{frame}
 
 %% --------------------------------------
 
+{
+\newcommand\graphstep[2]{%
+  \llap{\includegraphics<#2>[width=\textwidth]{exemple_front/#1<#2>.pdf}}}%
 \begin{frame}
-  \frametitle{Examples de fronts}
-
-  SST - HI - Chl-a
+  \frametitle{Exemple de front}
+  \includegraphics[width=\textwidth]{exemple_front/base<1->.pdf}%
+  \graphstep{SST}{1-}%
+  \graphstep{composantes}{2-6}%
+  \graphstep{arrows_out}{3-6}%
+  \graphstep{hi_image}{3}%
+  \graphstep{hi_real_image}{4-}%
+  \graphstep{HI_axes}{3-}%
+  \graphstep{hi_title}{3}%
+  \graphstep{hi_real_title}{4-}%
+  \graphstep{xlabels}{3}%
+  \graphstep{xlabels_real}{4-}%
+  \graphstep{contours_colorbar}{5-}%
+  \graphstep{contours}{5-}%
+  \graphstep{contours_compo}{6}%
+  \graphstep{contours_sst}{6-}%
+  \graphstep{chla}{7-}%
 \end{frame}
+}
+
+%% --------------------------------------
+
+% \begin{frame}
+%   \frametitle{Résultats: Évolution de la Chl-a avec le HI}
+%   \includegraphics[
+%   width=\textwidth, height=0.8\textheight, keepaspectratio
+%   ]{results/chl_vs_hi.pdf}
+% \end{frame}
 
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Résultats: Évolution de la Chl-a avec le HI}
+  \frametitle{Découpage en sous-régions}
   \includegraphics[
-  width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{results/chl_vs_hi.pdf}
-\end{frame}
-
-%% --------------------------------------
-
-\begin{frame}
-  \includegraphics[
-  width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{_parts_title/1.pdf}
+  width=\textwidth, height=0.9\textheight, keepaspectratio
+  ]{régions.pdf}
 \end{frame}
 
 %% --------------------------------------
@@ -326,19 +347,43 @@
 
 %% --------------------------------------
 
+{
+\newcommand\graphstep[2]{%
+  \llap{\includegraphics<#2>[width=\textwidth]{obtention_médianes/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Mesures de l'effet des fronts}
-  \includegraphics{fronts_delineation_single.pdf}
-  \\
-
-  \begin{block}{Excès}
-    déf
-  \end{block}
-
-  \begin{block}{Surplus}
-    déf
-  \end{block}
+  \includegraphics[width=\textwidth]{obtention_médianes/base<1->.pdf}%
+  \graphstep{SST}{1-2}%
+  \graphstep{regions}{3-4}%
+  \graphstep{HI}{5}%
+  \graphstep{fronts_delineation}{5-7}%
+  \graphstep{fronts_colors}{6-7}%
+  \graphstep{separation}{2}%
+  \graphstep{bathymetrie}{8-12}%
+  \graphstep{bathy_title}{8-10}%
+  \graphstep{static_title}{11-12}%
+  \graphstep{limit_bathy}{10}%
+  \graphstep{static_limits}{9-10}%
+  \graphstep{static_mask}{11-12}%
+  \graphstep{chla}{13-}%
+  \graphstep{appl_static}{14-}%
+  \graphstep{appl_region}{15-}%
+  \graphstep{appl_front}{16-}%
+  \graphstep{appl_front_hi}{16-17}%
+  \graphstep{appl_front_low}{18}%
+  \graphstep{appl_front_mid}{19}%
+  \graphstep{histogrammes_axes}{17-}%
+  \graphstep{histogramme_low}{18-}%
+  \graphstep{histogramme_mid}{19-}%
+  \graphstep{histogramme_hi}{17-}%
+  \graphstep{frame}{1-}%
+  \graphstep{hist_arrow}{17}%
+  \graphstep{threshold_arrow}{2}%
+  \graphstep{smoll_regions}{4-}%
+  \graphstep{smoll_fronts}{7-}%
+  \graphstep{smoll_static}{12-}%
 \end{frame}
+}
 
 %% --------------------------------------
 
@@ -368,6 +413,15 @@
   width=\textwidth, height=0.8\textheight, keepaspectratio
   ]{results/fronts_occurrence.pdf}
 
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Climatologies}
+  \includegraphics[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{results/ts_climatology.pdf}
 \end{frame}
 
 %% --------------------------------------
