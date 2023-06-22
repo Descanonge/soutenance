@@ -42,24 +42,36 @@
 
 \begin{frame}
   \frametitle{Qu'est-ce que le phytoplancton ?}
-  {
-    \centering
-    \multigraph{3}{intro_cycles}
-  }
+  {%
+    \includegraphics[
+    width=\textwidth, height=0.9\textheight, keepaspectratio
+    ]{patchwork.pdf}%
+    \centering%
+  }%
 \end{frame}
 
 %% --------------------------------------
 
+\begingroup
+\newcommand\graph[2]{%
+    \llap{\includegraphics<#2>[
+    width=\textwidth, height=0.9\textheight, keepaspectratio
+    ]{_intro_verticale/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{L'importance de la verticale}
   {
     \centering
-    \multigraph[
-    width=\textwidth, height=\textheight, keepaspectratio
-    ]{4}{intro_verticale}
+    \includegraphics[
+    width=\textwidth, height=0.9\textheight, keepaspectratio
+    ]{_intro_verticale/base<1->.pdf}%
+    \graph{euphotique}{2-}%
+    \graph{nutriments}{3-}%
+    \graph{melange}{4-}%
+    \graph{echanges}{5-}%
   }
 
 \end{frame}
+\endgroup
 
 %% --------------------------------------
 
@@ -139,19 +151,24 @@
 
 %% --------------------------------------
 
+{
+\newcommand\graph[2]{%
+  \llap{\includegraphics<#2>[height=0.75\textheight]{_front_circulation/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Frontogénèse et remontée des nutriments}
-  \centering
-  \includegraphics[height=0.8\textheight]{_front_circulation/1.pdf}%
-  \llap{\includegraphics<5>[height=0.8\textheight]{_front_circulation/6.pdf}}%
-  \llap{\includegraphics<1->[height=0.8\textheight]{_front_circulation/2.pdf}}%
-  \llap{\includegraphics<2->[height=0.8\textheight]{_front_circulation/3.pdf}}%
-  \llap{\includegraphics<3->[height=0.8\textheight]{_front_circulation/4.pdf}}%
-  \llap{\includegraphics<4->[height=0.8\textheight]{_front_circulation/5.pdf}}%
-  \llap{\includegraphics<6>[height=0.8\textheight]{_front_circulation/7.pdf}}%
+    \includegraphics[height=0.75\textheight]{_front_circulation/base<1->.pdf}%
+    \graph{upwell}{5}%
+    \graph{isopycnals}{1-}%
+    \graph{jet}{2-}%
+    \graph{vorticity}{3-}%
+    \graph{circulation}{4-}%
+    \graph{mld}{6}%
 
-  \onslide<5>{appuyer l'importance de l'intensité du front / circulation verticale ?}
+    \begin{block}<5>{}
+      appuyer l'importance de l'intensité du front / circulation verticale ?
+    \end{block}
 \end{frame}
+}
 
 %% --------------------------------------
 
@@ -445,9 +462,23 @@
 
 %% --------------------------------------
 
+\begingroup
+\newcommand\graph[2]{%
+  \llap{\includegraphics<#2>[height=0.7\textheight]{_bloom/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Décalage du \emph{\textit{démarrage}} du bloom}
-  \multigraph[width=0.85\textwidth]{7}{bloom}
+  \includegraphics[height=0.7\textheight]{_bloom/base<1->.pdf}%
+  \graph{blue_error}{2-}%
+  \graph{cyan_error}{3-}%
+  \graph{orange_error}{4-}%
+  \graph{green_error}{5-}%
+  \graph{blue_scatter}{2-}%
+  \graph{cyan_scatter}{3-}%
+  \graph{orange_scatter}{4-}%
+  \graph{green_scatter}{5-}%
+  \graph{fit_faible}{6-}%
+  \graph{fit_fort}{7-}%
+  \graph{base_top}{1-}%
 
   \vfill
 
@@ -457,6 +488,7 @@
     \only<7->{fit pour les fronts forts: \(-13.5 \pm 1.5\) jours}
   \end{overlayarea}
 \end{frame}
+\endgroup
 
 %% --------------------------------------
 
