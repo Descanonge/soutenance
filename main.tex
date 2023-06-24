@@ -77,24 +77,16 @@
 
 \begin{frame}
   \frametitle{Exemple de bloom}
-  \begin{columns}
-    \begin{column}{0.7\textwidth}
-      {\small\raggedleft
-        \includegraphics[
-        width=\textwidth, height=0.7\textheight, keepaspectratio
-        ]{northseaalgae_vir2_2023166.jpg}\\
-        15 juin 2023, VIIRS NOAA-20
-      }
-    \end{column}
-    \begin{column}{0.3\textwidth}
-      \begin{itemize}
-        \item Changement de couleur
-        \item Influence des courants
-      \end{itemize}
-    \end{column}
-  \end{columns}
-
-
+  \includegraphics<1>[
+  width=\linewidth, height=0.8\textheight, keepaspectratio
+  ]{true_color_0527.jpg}%
+  \includegraphics<2>[
+  width=\linewidth, height=0.92\textheight, keepaspectratio
+  ]{true_color_0527_zoom.jpg}%
+  \\
+  {\small
+    27 mai 2023, données L1 MODIS-Aqua
+  }
 \end{frame}
 
 %% --------------------------------------
@@ -139,7 +131,7 @@
   \begin{beamercolorbox}[sep=0pt, right]{}
     \includegraphics[width=0.7\textwidth, trim=180 400 0 200, clip]{composite.jpg}
     \\
-    {\footnotesize Image fausses couleurs MODIS-Terra 23-02-2020}
+    {\footnotesize Chl-a MODIS-Terra 23 février 2020}
   \end{beamercolorbox}
 
   \vfill
@@ -340,7 +332,7 @@
 
 %% --------------------------------------
 
-{
+\begingroup
 \newcommand\graphstep[2]{%
   \llap{\includegraphics<#2>[width=\textwidth]{_exemple_front/#1<#2>.pdf}}}%
 \begin{frame}
@@ -362,7 +354,7 @@
   \graphstep{contours_sst}{6-}%
   \graphstep{chla}{7-}%
 \end{frame}
-}
+\endgroup
 
 %% --------------------------------------
 
@@ -371,13 +363,72 @@
 
 %% --------------------------------------
 
+\begingroup
+\newcommand\graphstep[2]{%
+  \llap{\includegraphics<#2>[
+    width=\textwidth, height=0.9\textheight, keepaspectratio
+    ]{_distrib_region_perm/#1<#2>.pdf}}}%
 \begin{frame}
-  \frametitle{Climatologies}
+  \frametitle{Mesure de l'impact des fronts}
   \includegraphics[
-  width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{results/ts_climatology.pdf}
-  \\
-  garder seulement la zone Sud
+    width=\textwidth, height=0.9\textheight, keepaspectratio
+  ]{_distrib_region_perm/base<1->.pdf}%
+  \graphstep{front_mask}{2-}%
+  \graphstep{base_top}{1-}%
+  \graphstep{histogram}{3-}%
+  \graphstep{hist_back}{4-}%
+  \graphstep{hist_fronts}{3-}%
+\end{frame}
+\endgroup
+
+%% --------------------------------------
+
+\begingroup
+\newcommand\graphstep[2]{%
+  \llap{\includegraphics<#2>[height=0.8\textheight]{_res_perm/#1<#2>.pdf}}}%
+\begin{frame}
+  \frametitle{Résultats}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+  \includegraphics[height=0.8\textheight]{_res_perm/med_base<1->.pdf}%
+  \graphstep{xlabels_med}{1-4}%
+  \graphstep{xlabels_exces}{4}%
+  \graphstep{2020}{1}%
+  \graphstep{all_years}{2}%
+  \graphstep{climato}{3-}%
+  \graphstep{med_base_top}{1-}%
+  \graphstep{exces}{4-}%
+  \graphstep{surface}{5-}%
+  \graphstep{surplus}{6-}%
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \footnotesize
+      \begin{itemize}
+        \setlength{\itemsep}{5em}
+              \visible<4->{\item Excès :\\local, avec la médiane
+              \\
+              \[E = \frac {\text{fronts} - \text{background}} {\text{background}} \]}
+              \visible<6->{\item Surplus :\\pour la région, avec la \emph{moyenne}
+              \\
+              \[S = \frac {\text{total} - \text{background}} {\text{background}} \]}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+\endgroup
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Conclusion partie 1}
+  \begin{minipage}{0.85\linewidth}
+    \begin{itemize}
+            \setlength{\itemsep}{3em}
+      \item détection d'une augmentation locale de la Chl-a~(\pct{\approx 40})
+      \item moins important que précédemment mesuré\\(Liu \& Levine 2016,~\pct{\approx 80})
+      \item effet global moindre lorsque l'on prend en compte la surface impactée~(\pct{\approx 3})
+    \end{itemize}
+  \end{minipage}
 \end{frame}
 
 %% --------------------------------------
@@ -424,6 +475,20 @@
   \includegraphics[
   width=\textwidth, height=0.8\textheight, keepaspectratio
   ]{results/ts_climatology.pdf}
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Conclusion partie 2}
+
+  \vfill
+  \begin{itemize}
+    \setlength{\itemsep}{\stretch{1}}
+    \item yeah
+  \end{itemize}
+  \vfill
+
 \end{frame}
 
 %% --------------------------------------

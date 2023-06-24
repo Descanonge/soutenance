@@ -40,6 +40,16 @@
 % Use sans-serif math
 \RequirePackage[notosans]{newtxmath}
 
+\ExplSyntaxOn
+\RequirePackage{siunitx}
+\DeclareSIUnit \mgm {\milli\gram\per\cubic\metre}
+
+% Shortcut for percent value
+\NewDocumentCommand \pct { O{} m } {
+  \qty [number-mode=text, #1] {#2} {\percent}
+}
+\ExplSyntaxOff
+
 \RequirePackage{graphicx}
 \graphicspath{{resources}}
 
