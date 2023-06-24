@@ -2,10 +2,8 @@
 
 * admin
 ** voyage aida
-*** WAIT réponse admin pour document
-envoyé vendredi
 ** bar
-réservation pour ~20?
+réservation pour ~25?
 ** pot
 *** TODO Réserver tables
 *** TODO Réserver flutes
@@ -16,13 +14,43 @@ réservation pour ~20?
 - grotte de chypre ?
 - le truc des tartes ?
 - le thai / viet ?
-* TODO truc pour handout / presentation mode
 
-* idée plan
-question: quels sont les impacts des fronts ?
-- dans la région subtropicale (correspond au HI faible)
-- dans la région Gulf Stream (correspond hi faible / fort)
-- dans la région subpolaire (bloom)
+* mail annonce
+Bonjour à toutes et tous,
+
+/English below/
+
+J'ai le plaisir de vous convier à la soutenance de ma thèse qui aura lieu le mardi 4 juillet à 14h, dans l'amphi Astier (bâtiment Esclangon), et en visioconférence, dont le lien sera communiqué ultérierement.
+La soutenance sera suivie d'un pot sur l'esplanade.
+
+Ma thèse porte sur les impacts des fronts de sub-mésoéchelle sur la croissance, la phénologie, et la biodiversité du phytoplancton, quantifiés par imagerie satellitaire autour du Gulf Stream.
+Le jury sera composé de:
+Pascale Bouruet-Aubertot (SU, LOCEAN), présidente du jury
+Aida Alvera-Azcàrate (Université de Liège, AGO, GHER), rapportrice
+Hubert Loisel (Université du Littoral Côte d'Opale, LOG), rapporteur
+Élodie Martinez (IRD, LOPS), examinatrice
+Daniele Iudicone (Stazione Zoologica Anton Dohrn, Naples), examinateur
+Marina Lévy (CNRS, LOCEAN), directrice de thèse
+Laurent Bopp (CNRS, LMD), co-directeur de thèse
+
+Clément Haëck
+
+/English/
+I am happy to invite you to my PhD defense, which will take place on the 4th July at 2pm, in  the auditorium Astier (Esclangon building), as well as on video conference (the link will be shared beforehand).
+Please note that it will be conducted in french.
+Whatever your fluency in french may be, you are also invited at the ensuing customary drinks between towers 55 and 56 on the ground floor.
+
+My PhD focuses on impacts of sub-mesoscale fronts on phytoplankton growth, phenology, and biodiversity, quantified by satellite imagery around the Gulf Stream.
+The jury will comprise:
+Pascale Bouruet-Aubertot (SU, LOCEAN), president of jury
+Aida Alvera-Azcàrate (Université de Liège, AGO, GHER), reviewer
+Hubert Loisel (Université du Littoral Côte d'Opale, LOG), reviewer
+Élodie Martinez (IRD, LOPS), examiner
+Daniele Iudicone (Stazione Zoologica Anton Dohrn, Naples), examiner
+Marina Lévy (CNRS, LOCEAN), director
+Laurent Bopp (CNRS, LMD), co-director
+
+Clément Haëck
 
 * Animations (vidéos)
 ** bloom propagating north
@@ -30,7 +58,3 @@ with histogram of lon-avg on the side ?
 ** region separation
 with lingering trace of sep threshold ?
 
-* Animations (slides)
-** DONE Schéma frontogénèse / circ. sec.
-** DONE Détection phénologie méthode
-** DONE Détection phénologie comparaison bkg / frt

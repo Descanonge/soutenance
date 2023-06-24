@@ -58,30 +58,68 @@
     width=\textwidth, height=0.9\textheight, keepaspectratio
     ]{_intro_verticale/#1<#2>.pdf}}}%
 \begin{frame}
-  \frametitle{L'importance de la verticale}
+  \frametitle{Contrôles de la croissance du phytoplancton}
   {
     \centering
     \includegraphics[
     width=\textwidth, height=0.9\textheight, keepaspectratio
     ]{_intro_verticale/base<1->.pdf}%
+    \graph{photosynthese}{1-4}%
     \graph{euphotique}{2-}%
     \graph{nutriments}{3-}%
     \graph{melange}{4-}%
     \graph{echanges}{5-}%
   }
-
 \end{frame}
 \endgroup
 
 %% --------------------------------------
 
-\subsection{Observation du phytoplancton}
+\begin{frame}
+  \frametitle{Exemple de bloom}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+      {\small\raggedleft
+        \includegraphics[
+        width=\textwidth, height=0.7\textheight, keepaspectratio
+        ]{northseaalgae_vir2_2023166.jpg}\\
+        15 juin 2023, VIIRS NOAA-20
+      }
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \begin{itemize}
+        \item Changement de couleur
+        \item Influence des courants
+      \end{itemize}
+    \end{column}
+  \end{columns}
 
+
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  slide d'explication couleur chlorophylle-a,
+
+  sinon juste à l'oral
+\end{frame}
+
+%% --------------------------------------
+
+\begingroup
+\newcommand\graph[2]{%
+    \llap{\includegraphics<#2>[
+    width=\textwidth
+    ]{_levy_2023_fig1/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Observer le phytoplancton}
   {
     \centering
-    \multigraphtrans[width=\textwidth]{4}{levy_2023_fig1}
+    \includegraphics[width=\textwidth]{_levy_2023_fig1/base<1->.pdf}%
+    \graph{grids}{3-}%
+    \graph{sat}{4}%
+    \graph{insitu}{2-}%
   }
 
   \begin{itemize}
@@ -90,12 +128,13 @@
     \item<4-> \emph{Images satellites}
   \end{itemize}
 \end{frame}
+\endgroup
 
 %% --------------------------------------
 
 \subsection{Influence des courants}
 
-\begin{frame}
+\begin{frame}<1>[label=scales]
   \frametitle{Répartition horizontale du phytoplancton}
   \begin{beamercolorbox}[sep=0pt, right]{}
     \includegraphics[width=0.7\textwidth, trim=180 400 0 200, clip]{composite.jpg}
@@ -107,9 +146,9 @@
 
   \begin{beamercolorbox}[sep=0pt]{}
     Variations à:
-    \begin{itemize}[<+->]
-      \item \emph{grandes échelles}: Nord/Sud du Gulf Stream
-      \item \emph{fines échelles}: Tourbillons, filaments, \alert{fronts}
+    \begin{itemize}
+      \item<1> \emph{grandes échelles}: Nord/Sud du Gulf Stream
+      \item<2> \emph{fines échelles}: Tourbillons, filaments, \alert{fronts}
     \end{itemize}
   \end{beamercolorbox}
 \end{frame}
@@ -118,43 +157,30 @@
 
 \begin{frame}
   \frametitle{Influence des courants: Grande échelle}
-
-  \begin{block}{}
-    \includegraphics[width=\textwidth]{nutriments_global.pdf}
-  \end{block}
-  \textcolor{red}{rajouter les courants sur le Gulf Stream}
+  \includegraphics<1>[
+    width=\textwidth, height=0.85\textheight, keepaspectratio
+  ]{chl_month_avg.pdf}
+  \includegraphics<2>[
+    width=\textwidth, height=0.85\textheight, keepaspectratio
+  ]{nutriments_global.pdf}
 \end{frame}
 
 %% --------------------------------------
 
-{
-  \usebackgroundtemplate{
-    \parbox[t][\paperheight]{\paperwidth}{
-      \vfill\par
-      \includegraphics[
-      width=\textwidth, height=0.95\paperheight, keepaspectratio
-      ]{baltic_bloom.pdf}
-    }
-  }
+\againframe<2>{scales}
+
 \begin{frame}
-  \frametitle{Influence des courants: Fines échelles}
-  \hspace{8cm}
-  \begin{minipage}{3.2cm}
-    {\raggedright
-      Bloom dans la mer Baltique
-      \\[1em]
-      {\small Image fausses couleurs par Sentinel-2 (20-07-2019)}
-    }
-  \end{minipage}
+  \includegraphics[
+  width=\textwidth, height=\textheight, keepaspectratio,
+  trim=700 800 800 500, clip]{composite.jpg}
 \end{frame}
-}
 
 %% --------------------------------------
 
-{
+\begingroup
 \newcommand\graph[2]{%
   \llap{\includegraphics<#2>[height=0.75\textheight]{_front_circulation/#1<#2>.pdf}}}%
-\begin{frame}
+\begin{frame}<1-5>[label=frontogenese]
   \frametitle{Frontogénèse et remontée des nutriments}
     \includegraphics[height=0.75\textheight]{_front_circulation/base<1->.pdf}%
     \graph{upwell}{5}%
@@ -163,12 +189,7 @@
     \graph{vorticity}{3-}%
     \graph{circulation}{4-}%
     \graph{mld}{6}%
-
-    \begin{block}<5>{}
-      appuyer l'importance de l'intensité du front / circulation verticale ?
-    \end{block}
 \end{frame}
-}
 
 %% --------------------------------------
 
@@ -181,17 +202,8 @@
 
 %% --------------------------------------
 
-\begin{frame}
-  \frametitle{Déclenchement du bloom}
-  \framesubtitle{hypothèse de Sverdrup}
-  importance de la profondeur de la couche de mélange
-  \\[1em]
-
-  restratification au printemps
-  \\[1em]
-
-  accompagner d'un schéma ?
-\end{frame}
+\againframe<6>{frontogenese}
+\endgroup
 
 %% --------------------------------------
 
@@ -208,47 +220,60 @@
 
 %% --------------------------------------
 
-\begin{frame}
-  \frametitle{Région d'étude: autour du Gulf Stream}
-
-  \onslide<1->{plusieurs \strong{biorégions}}
-  \onslide<2->{, fronts d'intensités variées}
-
-  \vfill
-
-  \includegraphics[
-  width=\textwidth, height=\textheight, keepaspectratio
-  ]{zone_separation.pdf}
-\end{frame}
-
-%% --------------------------------------
-
 \subsection{Problématiques}
 
 \begin{frame}
   \boxtitle{Problématiques}
   \vspace{2em}
 
-  \begin{enumerate}
-    \setlength{\itemsep}{1em}
-    \item Quantifier la \emph{réponse de la chlorophylle-a} aux dynamiques \emph{frontales} dans la région du Gulf Stream
-    \uncover<2->{\item Influence de la \emph{saison}, du \emph{régime} biogéochimique, et de \emph{l’intensité} des fronts ?}
-    \uncover<3->{\item Détecter un \emph{bloom précoce} dans les fronts ?}
-  \end{enumerate}
+  \begin{beamercolorbox}[sep=0pt]{}
+    \begin{enumerate}
+      \setlength{\itemsep}{1.2em}
+      \item Comment quantifier la \emph{réponse de la chlorophylle-a} aux dynamiques \emph{frontales}
+      \item<2-> Influence de la \emph{saison}, du \emph{régime} biogéochimique, et de \emph{l’intensité} des fronts ?
+      \item<3-> Détecter un \emph{bloom précoce} dans les fronts ?
+    \end{enumerate}
+  \end{beamercolorbox}
 \end{frame}
 
 %% --------------------------------------
 
-\section*{Méthodes}
+\begingroup
+\newcommand\graph[2]{%
+    \llap{\includegraphics<#2>[
+    width=\textwidth, height=0.9\textheight, keepaspectratio
+    ]{_region_etude/#1<#2>.pdf}}}%
+\begin{frame}
+  \frametitle{Région d'étude: autour du Gulf Stream}
+  \includegraphics[
+  width=\textwidth, height=\textheight, keepaspectratio
+  ]{_region_etude/base<1->.pdf}%
+  \graph{gulfstream}{2-}%
+  \graph{gyre}{3-}%
+  \graph{talus}{4-}%
+  \graph{subtrop_perm}{5-}%
+  \graph{subpol}{6-}%
+  \graph{subtrop_sais}{7-}%
+\end{frame}
+\endgroup
+
+%% --------------------------------------
+
+\begin{frame}
+  \includegraphics[
+  width=\textwidth, height=\textheight, keepaspectratio
+  ]{parts_title.pdf}
+\end{frame}
+
+%% --------------------------------------
+
+\section*{Méthodes - Détection des fronts}
 
 \begin{frame}
   \boxtitle{Méthodes - Détection des fronts}
 \end{frame}
 
 %% --------------------------------------
-%%
-
-\subsection{Méthodes existantes}
 
 \begin{frame}
   \frametitle{Détecter les fronts par satellite}
@@ -317,10 +342,10 @@
 
 {
 \newcommand\graphstep[2]{%
-  \llap{\includegraphics<#2>[width=\textwidth]{exemple_front/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[width=\textwidth]{_exemple_front/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Exemple de front}
-  \includegraphics[width=\textwidth]{exemple_front/base<1->.pdf}%
+  \includegraphics[width=\textwidth]{_exemple_front/base<1->.pdf}%
   \graphstep{SST}{1-}%
   \graphstep{composantes}{2-6}%
   \graphstep{arrows_out}{3-6}%
@@ -341,66 +366,8 @@
 
 %% --------------------------------------
 
-% \begin{frame}
-%   \frametitle{Résultats: Évolution de la Chl-a avec le HI}
-%   \includegraphics[
-%   width=\textwidth, height=0.8\textheight, keepaspectratio
-%   ]{results/chl_vs_hi.pdf}
-% \end{frame}
-
-%% --------------------------------------
-
-\begin{frame}
-  \frametitle{Découpage en sous-régions}
-  \includegraphics[
-  width=\textwidth, height=0.9\textheight, keepaspectratio
-  ]{régions.pdf}
-\end{frame}
-
-%% --------------------------------------
-
 \section{Région subtropicale -- Augmentation de la Chlorophylle dans les fronts}
 \sectionframe{1}
-
-%% --------------------------------------
-
-{
-\newcommand\graphstep[2]{%
-  \llap{\includegraphics<#2>[width=\textwidth]{obtention_médianes/#1<#2>.pdf}}}%
-\begin{frame}
-  \frametitle{Mesures de l'effet des fronts}
-  \includegraphics[width=\textwidth]{obtention_médianes/base<1->.pdf}%
-  \graphstep{SST}{1-2}%
-  \graphstep{regions}{3-4}%
-  \graphstep{HI}{5}%
-  \graphstep{fronts_delineation}{5-7}%
-  \graphstep{fronts_colors}{6-7}%
-  \graphstep{separation}{2}%
-  \graphstep{bathymetrie}{8-12}%
-  \graphstep{bathy_title}{8-10}%
-  \graphstep{static_title}{11-12}%
-  \graphstep{limit_bathy}{10}%
-  \graphstep{static_limits}{9-10}%
-  \graphstep{static_mask}{11-12}%
-  \graphstep{chla}{13-}%
-  \graphstep{appl_static}{14-}%
-  \graphstep{appl_region}{15-}%
-  \graphstep{appl_front}{16-}%
-  \graphstep{appl_front_hi}{16-17}%
-  \graphstep{appl_front_low}{18}%
-  \graphstep{appl_front_mid}{19}%
-  \graphstep{histogrammes_axes}{17-}%
-  \graphstep{histogramme_low}{18-}%
-  \graphstep{histogramme_mid}{19-}%
-  \graphstep{histogramme_hi}{17-}%
-  \graphstep{frame}{1-}%
-  \graphstep{hist_arrow}{17}%
-  \graphstep{threshold_arrow}{2}%
-  \graphstep{smoll_regions}{4-}%
-  \graphstep{smoll_fronts}{7-}%
-  \graphstep{smoll_static}{12-}%
-\end{frame}
-}
 
 %% --------------------------------------
 
@@ -417,6 +384,24 @@
 
 \section{Région du Gulf-Stream -- Intensité des fronts}
 \sectionframe{2}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Découpage en sous-régions}
+  \includegraphics[
+  width=\textwidth, height=0.9\textheight, keepaspectratio
+  ]{régions.pdf}
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Évolution de la Chl-a avec le HI}
+  \includegraphics[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{results/chl_vs_hi.pdf}
+\end{frame}
 
 %% --------------------------------------
 
@@ -531,5 +516,46 @@
 \begin{frame}
   Fin
 \end{frame}
+
+\appendix
+
+{
+\newcommand\graphstep[2]{%
+  \llap{\includegraphics<#2>[width=\textwidth]{obtention_médianes/#1<#2>.pdf}}}%
+\begin{frame}
+  \frametitle{Mesures de l'effet des fronts}
+  \includegraphics[width=\textwidth]{obtention_médianes/base<1->.pdf}%
+  \graphstep{SST}{1-2}%
+  \graphstep{regions}{3-4}%
+  \graphstep{HI}{5}%
+  \graphstep{fronts_delineation}{5-7}%
+  \graphstep{fronts_colors}{6-7}%
+  \graphstep{separation}{2}%
+  \graphstep{bathymetrie}{8-12}%
+  \graphstep{bathy_title}{8-10}%
+  \graphstep{static_title}{11-12}%
+  \graphstep{limit_bathy}{10}%
+  \graphstep{static_limits}{9-10}%
+  \graphstep{static_mask}{11-12}%
+  \graphstep{chla}{13-}%
+  \graphstep{appl_static}{14-}%
+  \graphstep{appl_region}{15-}%
+  \graphstep{appl_front}{16-}%
+  \graphstep{appl_front_hi}{16-17}%
+  \graphstep{appl_front_low}{18}%
+  \graphstep{appl_front_mid}{19}%
+  \graphstep{histogrammes_axes}{17-}%
+  \graphstep{histogramme_low}{18-}%
+  \graphstep{histogramme_mid}{19-}%
+  \graphstep{histogramme_hi}{17-}%
+  \graphstep{frame}{1-}%
+  \graphstep{hist_arrow}{17}%
+  \graphstep{threshold_arrow}{2}%
+  \graphstep{smoll_regions}{4-}%
+  \graphstep{smoll_fronts}{7-}%
+  \graphstep{smoll_static}{12-}%
+\end{frame}
+}
+
 
 \end{document}
