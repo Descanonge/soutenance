@@ -99,6 +99,17 @@
 
 %% --------------------------------------
 
+\begin{frame}[label=chlsnapshot]
+  \frametitle{Répartition horizontale du phytoplancton}
+  \begin{beamercolorbox}[sep=0pt, right]{}
+    \includegraphics[height=0.8\textheight]{chl_snapshot_GS.pdf}
+    \\
+    {\footnotesize Chlorophylle-a L2 MODIS-Terra, 20 février 2020}
+  \end{beamercolorbox}
+\end{frame}
+
+%% --------------------------------------
+
 \begingroup
 \newcommand\graph[2]{%
     \llap{\includegraphics<#2>[
@@ -126,27 +137,6 @@
 
 \subsection{Influence des courants}
 
-\begin{frame}<1>[label=scales]
-  \frametitle{Répartition horizontale du phytoplancton}
-  \begin{beamercolorbox}[sep=0pt, right]{}
-    \includegraphics[width=0.7\textwidth, trim=180 400 0 200, clip]{composite.jpg}
-    \\
-    {\footnotesize Chl-a MODIS-Terra 23 février 2020}
-  \end{beamercolorbox}
-
-  \vfill
-
-  \begin{beamercolorbox}[sep=0pt]{}
-    Variations à:
-    \begin{itemize}
-      \item<1> \emph{grandes échelles}: Nord/Sud du Gulf Stream
-      \item<2> \emph{fines échelles}: Tourbillons, filaments, \alert{fronts}
-    \end{itemize}
-  \end{beamercolorbox}
-\end{frame}
-
-%% --------------------------------------
-
 \begin{frame}
   \frametitle{Influence des courants: Grande échelle}
   \includegraphics<1>[
@@ -159,13 +149,7 @@
 
 %% --------------------------------------
 
-\againframe<2>{scales}
-
-\begin{frame}
-  \includegraphics[
-  width=\textwidth, height=\textheight, keepaspectratio,
-  trim=700 800 800 500, clip]{composite.jpg}
-\end{frame}
+\againframe<2>{chlsnapshot}
 
 %% --------------------------------------
 
@@ -239,23 +223,17 @@
   \frametitle{Région d'étude: autour du Gulf Stream}
   \includegraphics[
   width=\textwidth, height=\textheight, keepaspectratio
-  ]{_region_etude/base<1->.pdf}%
-  \graph{gulfstream}{2-}%
-  \graph{gyre}{3-}%
-  \graph{talus}{4-}%
+  ]{_region_etude/base_chl<1->.pdf}%
+  \graph{base_sst}{1-7}%
+  \graph{gulfstream}{2-7}%
+  \graph{gyre}{3-7}%
+  \graph{talus}{4-7}%
   \graph{subtrop_perm}{5-}%
   \graph{subpol}{6-}%
   \graph{subtrop_sais}{7-}%
+  \graph{problematiques}{8-}%
 \end{frame}
 \endgroup
-
-%% --------------------------------------
-
-\begin{frame}
-  \includegraphics[
-  width=\textwidth, height=\textheight, keepaspectratio
-  ]{parts_title.pdf}
-\end{frame}
 
 %% --------------------------------------
 
@@ -359,7 +337,25 @@
 %% --------------------------------------
 
 \section{Région subtropicale -- Augmentation de la Chlorophylle dans les fronts}
-\sectionframe{1}
+\begingroup
+\newcommand\graph[1]{%
+    \llap{\includegraphics[
+    width=\textwidth, height=0.9\textheight, keepaspectratio
+    ]{_region_etude/#1.pdf}}}%
+\begin{frame}
+  \boxtitle{Partie 1}
+
+  \includegraphics[
+  width=\textwidth, height=\textheight, keepaspectratio
+  ]{_region_etude/base_chl<1->.pdf}%
+  \graph{subtrop_perm<5->}%
+  \graph{subtrop_sais<7->}%
+  \graph{subpol<6->}%
+  \graph{problematiques<8->}%
+  \graph{blocker_2}%
+  \graph{blocker_3}%
+\end{frame}
+\endgroup
 
 %% --------------------------------------
 
@@ -434,7 +430,25 @@
 %% --------------------------------------
 
 \section{Région du Gulf-Stream -- Intensité des fronts}
-\sectionframe{2}
+\begingroup
+\newcommand\graph[1]{%
+    \llap{\includegraphics[
+    width=\textwidth, height=0.9\textheight, keepaspectratio
+    ]{_region_etude/#1.pdf}}}%
+\begin{frame}
+  \boxtitle{Partie 2}
+
+  \includegraphics[
+  width=\textwidth, height=\textheight, keepaspectratio
+  ]{_region_etude/base_chl<1->.pdf}%
+  \graph{subtrop_perm<5->}%
+  \graph{subtrop_sais<7->}%
+  \graph{subpol<6->}%
+  \graph{problematiques<8->}%
+  \graph{blocker_1}%
+  \graph{blocker_3}%
+\end{frame}
+\endgroup
 
 %% --------------------------------------
 
@@ -458,12 +472,28 @@
 
 \begin{frame}
   \frametitle{Occurence des fronts}
-  \includegraphics{fronts_delineation.pdf}
-  \\
+  \begin{overlayarea}{\textwidth}{0.25\textheight}
+    \centering
+    \includegraphics<1>{fronts_delineation.pdf}
+    \only<2>{
+      \vspace{1em}
+      \begin{minipage}{0.45\textwidth}
+        \centering
+        fronts faibles:\\ submésoéchelle, éphémères
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.45\textwidth}
+        \centering
+        fronts forts:\\ mésoéchelle, permanents
+      \end{minipage}
+    }
+    \\
+  \end{overlayarea}
+
   \vfill
 
   \includegraphics[
-  width=\textwidth, height=0.8\textheight, keepaspectratio
+  width=\textwidth, height=0.75\textheight, keepaspectratio
   ]{results/fronts_occurrence.pdf}
 
 \end{frame}
@@ -494,7 +524,25 @@
 %% --------------------------------------
 
 \section{Région subpolaire -- Phénologie du bloom}
-\sectionframe{3}
+\begingroup
+\newcommand\graph[1]{%
+    \llap{\includegraphics[
+    width=\textwidth, height=0.9\textheight, keepaspectratio
+    ]{_region_etude/#1.pdf}}}%
+\begin{frame}
+  \boxtitle{Partie 3}
+
+  \includegraphics[
+  width=\textwidth, height=\textheight, keepaspectratio
+  ]{_region_etude/base_chl<1->.pdf}%
+  \graph{subtrop_perm<5->}%
+  \graph{subtrop_sais<7->}%
+  \graph{subpol<6->}%
+  \graph{problematiques<8->}%
+  \graph{blocker_1}%
+  \graph{blocker_2}%
+\end{frame}
+\endgroup
 
 %% --------------------------------------
 
