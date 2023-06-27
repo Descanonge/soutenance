@@ -104,7 +104,7 @@
   \begin{beamercolorbox}[sep=0pt, right]{}
     \includegraphics[height=0.8\textheight]{chl_snapshot_GS.pdf}
     \\
-    {\footnotesize Chlorophylle-a L2 MODIS-Terra, 20 février 2020}
+    {\footnotesize Chlorophylle-a L2 MODIS-Terra, 23 février 2020}
   \end{beamercolorbox}
 \end{frame}
 
@@ -384,32 +384,15 @@
   \llap{\includegraphics<#2>[height=0.8\textheight]{_res_perm/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Résultats}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-  \includegraphics[height=0.8\textheight]{_res_perm/med_base<1->.pdf}%
-  \graphstep{xlabels_med}{1-4}%
-  \graphstep{xlabels_exces}{4}%
-  \graphstep{2020}{1}%
-  \graphstep{all_years}{2}%
-  \graphstep{climato}{3-}%
-  \graphstep{med_base_top}{1-}%
+  \includegraphics[height=0.8\textheight]{_res_perm/base<1->.pdf}%
+  \graphstep{top_xlabels_med}{1-4}%
+  \graphstep{med_one_year}{1}%
+  \graphstep{med_all_years}{2}%
+  \graphstep{med_cli}{3-}%
+  \graphstep{top_xlabels_exces}{4}%
   \graphstep{exces}{4-}%
   \graphstep{surface}{5-}%
   \graphstep{surplus}{6-}%
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \footnotesize
-      \begin{itemize}
-        \setlength{\itemsep}{5em}
-              \visible<4->{\item Excès :\\local, avec la médiane
-              \\
-              \[E = \frac {\text{fronts} - \text{background}} {\text{background}} \]}
-              \visible<6->{\item Surplus :\\pour la région, avec la \emph{moyenne}
-              \\
-              \[S = \frac {\text{total} - \text{background}} {\text{background}} \]}
-      \end{itemize}
-    \end{column}
-  \end{columns}
 \end{frame}
 \endgroup
 
@@ -452,12 +435,21 @@
 
 %% --------------------------------------
 
+\begingroup
+\newcommand\graph[2]{%
+  \llap{\includegraphics<#2>[
+    width=\textwidth, height=0.8\textheight, keepaspectratio
+    ]{_zone_separation/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Découpage en sous-régions}
   \includegraphics[
-  width=\textwidth, height=0.9\textheight, keepaspectratio
-  ]{régions.pdf}
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{_zone_separation/base<1->.pdf}%
+  \graph{hist_in}{1-2}%
+  \graph{fit_gauss}{2}%
+  \graph{separation}{3-}%
 \end{frame}
+\endgroup
 
 %% --------------------------------------
 
