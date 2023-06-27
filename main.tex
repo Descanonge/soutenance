@@ -61,11 +61,11 @@
       \graph{frame_top}{5-}%
     \end{column}
     \begin{column}{0.35\textwidth}
-      \begin{itemize}
-        % \item<2-> Mesures in-situ
-        % \item<3-> Modèles numériques biogéochimiques
-        % \item<4-> \emph{Images satellites}
-      \end{itemize}
+      % \begin{itemize}
+      %   \item<2-> Mesures in-situ
+      %   \item<3-> Modèles numériques biogéochimiques
+      %   \item<4-> \emph{Images satellites}
+      % \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
@@ -80,9 +80,13 @@
   \includegraphics<1>[
     width=\textwidth, height=0.85\textheight, keepaspectratio
   ]{chl_month_avg.pdf}
-  \includegraphics<2>[
+  \only<2>{
+    \includegraphics<2>[
     width=\textwidth, height=0.85\textheight, keepaspectratio
-  ]{nutriments_global.pdf}
+    ]{nutriments_global.pdf}
+    \\
+    \datenote{World Ocean Atlas 2018}
+  }
 \end{frame}
 
 %% --------------------------------------
@@ -277,7 +281,7 @@
 \newcommand\graphstep[2]{%
   \llap{\includegraphics<#2>[width=\textwidth]{_composantes/#1<#2>.pdf}}}%
 \begin{frame}
-  \frametitle{Détection d'un front}
+  \frametitle{Détection des fronts: méthode du “Heterogeneity-Index” (HI)}
   \begin{itemize}
     \item en pratique, des fronts plus complexes qu'une \textsb{simple ligne}
   \end{itemize}
@@ -348,10 +352,36 @@
   \graphstep{med_all_years}{2}%
   \graphstep{med_cli}{3-}%
   \graphstep{exces}{4-}%
+  \graphstep{comparaison}{5-}%
 
   \datenote{dans la bande 25--30°N}
 \end{frame}
 \endgroup
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Comparaison avec l'estimation de Liu \& Levine (2016)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item taille de la fenêtre glissante (10km vs 30km) ?
+      \end{itemize}
+      \visible<2->{
+        \includegraphics[height=3cm]{ts_sensitivity.pdf}
+        \\
+        Résultats peu sensibles aux paramètres
+      }
+    \end{column}
+
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item biais d'un gradient de grande échelle ?
+      \end{itemize}
+      \visible<3->{\includegraphics[height=3cm]{biais_gradient.pdf}}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 %% --------------------------------------
 
@@ -361,9 +391,9 @@
 
   \vfill
 
-  \begin{block}{}
-    impact réduit
-  \end{block}
+  \begin{itemize}
+    \item effet des fronts très faible à l'échelle régionale
+  \end{itemize}
 \end{frame}
 
 %% --------------------------------------
@@ -427,7 +457,7 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Évolution de la Chl-a avec le HI}
+  \frametitle{Évolution de la chl-a avec le HI}
   \includegraphics[
   width=\textwidth, height=0.8\textheight, keepaspectratio
   ]{results/chl_vs_hi.pdf}
@@ -436,7 +466,7 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Occurence des fronts}
+  \frametitle{Cartes de probabilité de présence des fronts}
   \begin{overlayarea}{\textwidth}{0.25\textheight}
     \centering
     \includegraphics<1>{fronts_delineation.pdf}
@@ -466,10 +496,13 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Climatologies}
+  \frametitle{Impact des fronts (faibles et forts) sur la Chl-a}
   \includegraphics[
   width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{results/ts_climatology.pdf}
+  ]{_res_sais/base<1->.pdf}%
+  \llap{\includegraphics<2->[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{_res_sais/regional<2->.pdf}}%
 \end{frame}
 
 %% --------------------------------------
@@ -480,8 +513,9 @@
   \vfill
   \begin{itemize}
     \setlength{\itemsep}{\stretch{1}}
-    \item augmentation \emph{importante} de chl-a dans les fronts
-    \item plus importante dans les fronts \emph{forts}
+    \item augmentation de chl-a d'autant plus importante dans les fronts forts
+    \item les fronts forts impactent une plus petite surface
+    \item en résulte un effet à l'échelle régionale comparable entre fronts forts et faibles
   \end{itemize}
   \vfill
 
