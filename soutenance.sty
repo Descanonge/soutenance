@@ -109,6 +109,21 @@
   }
 }
 
+\setbeamerfont{note block}{size=\footnotesize}
+\setbeamercolor{note block}{}
+\NewDocumentCommand \datenote { O{} m }{
+  {
+    \begin{beamercolorbox}[#1]{note block}
+      \usebeamerfont{note block}
+      \par\mbox{#2}\par
+    \end{beamercolorbox}
+  }
+}
+
+\AtBeginDocument{%
+  \centering
+}
+
 \ExplSyntaxOff
 
 % Reduce margins size

@@ -40,96 +40,34 @@
 
 %% --------------------------------------
 
-\begin{frame}
-  \frametitle{Qu'est-ce que le phytoplancton ?}
-  {%
-    \includegraphics[
-    width=\textwidth, height=0.9\textheight, keepaspectratio
-    ]{patchwork.pdf}%
-    \centering%
-  }%
-\end{frame}
-
-%% --------------------------------------
-
 \begingroup
 \newcommand\graph[2]{%
     \llap{\includegraphics<#2>[
-    width=\textwidth, height=0.9\textheight, keepaspectratio
-    ]{_intro_verticale/#1<#2>.pdf}}}%
-\begin{frame}
-  \frametitle{Contrôles de la croissance du phytoplancton}
-  {
-    \centering
-    \includegraphics[
-    width=\textwidth, height=0.9\textheight, keepaspectratio
-    ]{_intro_verticale/base<1->.pdf}%
-    \graph{photosynthese}{1-4}%
-    \graph{euphotique}{2-}%
-    \graph{nutriments}{3-}%
-    \graph{melange}{4-}%
-    \graph{echanges}{5-}%
-  }
-\end{frame}
-\endgroup
-
-%% --------------------------------------
-
-\begin{frame}
-  \frametitle{Exemple de bloom}
-  \includegraphics<1>[
-  width=\linewidth, height=0.8\textheight, keepaspectratio
-  ]{true_color_0527.jpg}%
-  \includegraphics<2>[
-  width=\linewidth, height=0.92\textheight, keepaspectratio
-  ]{true_color_0527_zoom.jpg}%
-  \\
-  {\small
-    27 mai 2023, données L1 MODIS-Aqua
-  }
-\end{frame}
-
-%% --------------------------------------
-
-\begin{frame}
-  slide d'explication couleur chlorophylle-a,
-
-  sinon juste à l'oral
-\end{frame}
-
-%% --------------------------------------
-
-\begin{frame}[label=chlsnapshot]
-  \frametitle{Répartition horizontale du phytoplancton}
-  \begin{beamercolorbox}[sep=0pt, right]{}
-    \includegraphics[height=0.8\textheight]{chl_snapshot_GS.pdf}
-    \\
-    {\footnotesize Chlorophylle-a L2 MODIS-Terra, 23 février 2020}
-  \end{beamercolorbox}
-\end{frame}
-
-%% --------------------------------------
-
-\begingroup
-\newcommand\graph[2]{%
-    \llap{\includegraphics<#2>[
-    width=\textwidth
+    height=0.85\textheight
     ]{_levy_2023_fig1/#1<#2>.pdf}}}%
 \begin{frame}
-  \frametitle{Observer le phytoplancton}
-  {
-    \centering
-    \includegraphics[width=\textwidth]{_levy_2023_fig1/base<1->.pdf}%
-    \graph{grids}{3-}%
-    \graph{sat}{4}%
-    \graph{insitu}{2-}%
-  }
+  \frametitle{Le phytoplancton dans le système terre}
 
-  \begin{itemize}
-    \item<2-> Mesures in-situ
-    \item<3-> Modèles numériques biogéochimiques
-    \item<4-> \emph{Images satellites}
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.60\textwidth}
+      \includegraphics[height=0.85\textheight]{_levy_2023_fig1/base<1->.pdf}%
+      \graph{export}{2-}%
+      \graph{cycle}{3-}%
+      \graph{eddy_fluxes}{4-}%
+      \graph{sat}{5-}%
+      \graph{insitu}{6-}%
+      \graph{simulations}{7-}%
+      \graph{frame_bot}{1-}%
+      \graph{frame_top}{5-}%
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \begin{itemize}
+        % \item<2-> Mesures in-situ
+        % \item<3-> Modèles numériques biogéochimiques
+        % \item<4-> \emph{Images satellites}
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 \endgroup
 
@@ -149,7 +87,14 @@
 
 %% --------------------------------------
 
-\againframe<2>{chlsnapshot}
+\begin{frame}
+  \frametitle{Échelles horizontales: vers la sub-mésoéchelle}
+  % \begin{beamercolorbox}[sep=0pt, right]{}
+    \includegraphics[height=0.8\textheight]{chl_snapshot_GS.pdf}
+    \\
+    \datenote[right]{Chlorophylle-a L2 MODIS-Terra, 23 février 2020}
+  % \end{beamercolorbox}
+\end{frame}
 
 %% --------------------------------------
 
@@ -157,9 +102,9 @@
 \newcommand\graph[2]{%
   \llap{\includegraphics<#2>[height=0.75\textheight]{_front_circulation/#1<#2>.pdf}}}%
 \begin{frame}<1-5>[label=frontogenese]
-  \frametitle{Frontogénèse et remontée des nutriments}
+  \frametitle{Impact des fronts sur la croissance du phytoplancton}
     \includegraphics[height=0.75\textheight]{_front_circulation/base<1->.pdf}%
-    \graph{upwell}{5}%
+    \graph{upwell}{5-}%
     \graph{isopycnals}{1-}%
     \graph{jet}{2-}%
     \graph{vorticity}{3-}%
@@ -170,9 +115,28 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Quantification de l'apport de nutriments}
+  \frametitle{Exemple de front}
 
-  littérature
+  \includegraphics[width=6cm]{front_exemple.pdf}
+  \\
+  \datenote[left]{22 avril 2007}
+
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Quantification de l'apport vertical de nutriments}
+
+  pleins d'études locales
+
+  \vspace{1em}
+
+  Sur toute la gyre subtropicale du Pacifique Nord:
+  \begin{minipage}{6cm}
+    \includegraphics[width=\linewidth]{liu_levine.png}%
+    \datenote[right]{\textit{Liu \& Levine 2016, fig.~3}}
+  \end{minipage}
 
 \end{frame}
 
@@ -232,6 +196,8 @@
   \graph{subpol}{6-}%
   \graph{subtrop_sais}{7-}%
   \graph{problematiques}{8-}%
+
+  \datenote[right]{moyennes sur mai 2023}
 \end{frame}
 \endgroup
 
@@ -241,35 +207,6 @@
 
 \begin{frame}
   \boxtitle{Méthodes - Détection des fronts}
-\end{frame}
-
-%% --------------------------------------
-
-\begin{frame}
-  \frametitle{Détecter les fronts par satellite}
-
-  \begin{block}{}
-    On utilise la \strong{SST} comme proxy de la densité
-  \end{block}
-
-  \begin{block}{}
-    Plusieurs méthodes existantes:
-    \begin{itemize}
-            \setlength{\itemsep}{1.2em}
-      \item “simple” dérivation: gradient, Sobel, Laplacien, \dots
-      \item filtrer auparavant: Canny (1986), Belkin--O'Reilly (2009)
-      \item fenêtre glissante: Cayula--Cornillon (1992), Nieto et al. (2012), Miller (2009), \strong{Liu \& Levine (2016)}
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-%% --------------------------------------
-
-\begin{frame}
-  \frametitle{Méthode du “Heterogeneity-index”}
-  \onslide<1->{Fenêtre glissante}\onslide<2->{, dans laquelle on calcule 3 composantes}
-  \\[1em]
-  \multigraphtrans[height=0.75\textheight]{4}{zoom_front}
 \end{frame}
 
 %% --------------------------------------
@@ -287,9 +224,13 @@
 
   \vfill
 
-  \includegraphics[height=0.5\textheight]{comparaison_sst.pdf}
+  \includegraphics[height=0.5\textheight]{comparaison_sst.pdf}%
+  \hspace{0.5cm}%
+  {\scriptsize (22 avril 2007)\par}
 
 \end{frame}
+
+%% --------------------------------------
 
 \begin{frame}
   \frametitle{Données utilisées: Chl-a}
@@ -304,33 +245,50 @@
 
   \vfill
 
-  \includegraphics[height=0.5\textheight]{comparaison_chl.pdf}
+  \includegraphics[height=0.5\textheight]{comparaison_chl.pdf}%
+  \hspace{0.5cm}%
+  {\scriptsize (22 avril 2007)\par}
 
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Détecter les fronts par satellite}
+
+  \begin{block}{}
+    On utilise la \strong{SST} comme proxy de la densité
+  \end{block}
+
+  \begin{block}{}
+    Plusieurs méthodes existantes:
+    \begin{itemize}
+            \setlength{\itemsep}{1.2em}
+      \item “simple” dérivation: gradient, Sobel, Laplacien, \dots
+      \item filtrage préalable: Canny (1986), Belkin--O'Reilly (2009)
+      \item fenêtre glissante: Cayula--Cornillon (1992), Nieto et al. (2012), Miller (2009), \strong{Liu \& Levine (2016)}
+    \end{itemize}
+  \end{block}
 \end{frame}
 
 %% --------------------------------------
 
 \begingroup
 \newcommand\graphstep[2]{%
-  \llap{\includegraphics<#2>[width=\textwidth]{_exemple_front/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[width=\textwidth]{_composantes/#1<#2>.pdf}}}%
 \begin{frame}
-  \frametitle{Exemple de front}
-  \includegraphics[width=\textwidth]{_exemple_front/base<1->.pdf}%
-  \graphstep{SST}{1-}%
-  \graphstep{composantes}{2-6}%
-  \graphstep{arrows_out}{3-6}%
-  \graphstep{hi_image}{3}%
-  \graphstep{hi_real_image}{4-}%
-  \graphstep{HI_axes}{3-}%
-  \graphstep{hi_title}{3}%
-  \graphstep{hi_real_title}{4-}%
-  \graphstep{xlabels}{3}%
-  \graphstep{xlabels_real}{4-}%
-  \graphstep{contours_colorbar}{5-}%
-  \graphstep{contours}{5-}%
-  \graphstep{contours_compo}{6}%
-  \graphstep{contours_sst}{6-}%
-  \graphstep{chla}{7-}%
+  \frametitle{Détection d'un front}
+  \begin{itemize}
+    \item en pratique, des fronts plus complexes qu'une \textsb{simple ligne}
+  \end{itemize}
+
+  \includegraphics[width=\textwidth]{_composantes/base<1->.pdf}%
+  \graphstep{composantes}{2-3}%
+  \graphstep{chla}{1,4-}%
+  \graphstep{HI}{2-}%
+  \graphstep{contours}{3-}%
+  \graphstep{contours_compo}{3}%
+  \graphstep{contours_sst}{4-}%
 \end{frame}
 \endgroup
 
@@ -362,18 +320,18 @@
 \begingroup
 \newcommand\graphstep[2]{%
   \llap{\includegraphics<#2>[
-    width=\textwidth, height=0.9\textheight, keepaspectratio
+    width=\textwidth, height=0.8\textheight, keepaspectratio
     ]{_distrib_region_perm/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Mesure de l'impact des fronts}
   \includegraphics[
-    width=\textwidth, height=0.9\textheight, keepaspectratio
+    width=\textwidth, height=0.8\textheight, keepaspectratio
   ]{_distrib_region_perm/base<1->.pdf}%
-  \graphstep{front_mask}{2-}%
-  \graphstep{base_top}{1-}%
+  \graphstep{latband}{2-}%
   \graphstep{histogram}{3-}%
-  \graphstep{hist_back}{4-}%
-  \graphstep{hist_fronts}{3-}%
+  \graphstep{medianes}{4-}%
+
+  \datenote[left]{23 février 2020}
 \end{frame}
 \endgroup
 
@@ -383,18 +341,30 @@
 \newcommand\graphstep[2]{%
   \llap{\includegraphics<#2>[height=0.8\textheight]{_res_perm/#1<#2>.pdf}}}%
 \begin{frame}
-  \frametitle{Résultats}
+  \frametitle{Augmentation locale de la chl-a}
   \includegraphics[height=0.8\textheight]{_res_perm/base<1->.pdf}%
-  \graphstep{top_xlabels_med}{1-4}%
   \graphstep{med_one_year}{1}%
+  \graphstep{histogram}{1}%
   \graphstep{med_all_years}{2}%
   \graphstep{med_cli}{3-}%
-  \graphstep{top_xlabels_exces}{4}%
   \graphstep{exces}{4-}%
-  \graphstep{surface}{5-}%
-  \graphstep{surplus}{6-}%
+
+  \datenote{dans la bande 25--30°N}
 \end{frame}
 \endgroup
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Effet régional sur la chl-a}
+  \includegraphics[width=\textwidth]{surplus.pdf}%
+
+  \vfill
+
+  \begin{block}{}
+    impact réduit
+  \end{block}
+\end{frame}
 
 %% --------------------------------------
 
@@ -403,8 +373,8 @@
   \begin{minipage}{0.85\linewidth}
     \begin{itemize}
             \setlength{\itemsep}{3em}
-      \item détection d'une augmentation locale de la Chl-a~(\pct{\approx 40})
-      \item moins important que précédemment mesuré\\(Liu \& Levine 2016,~\pct{\approx 80})
+      \item détection d'une augmentation locale de la Chl-a~(\pct{\approx 10})
+      \item moins important l'estimation de Liu \& Levine (2016)~\pct{\approx 40})
       \item effet global moindre lorsque l'on prend en compte la surface impactée~(\pct{\approx 3})
     \end{itemize}
   \end{minipage}
@@ -441,13 +411,16 @@
     width=\textwidth, height=0.8\textheight, keepaspectratio
     ]{_zone_separation/#1<#2>.pdf}}}%
 \begin{frame}
-  \frametitle{Découpage en sous-régions}
+  \frametitle{Détection journalière du mur nord du Gulf Stream}
   \includegraphics[
   width=\textwidth, height=0.8\textheight, keepaspectratio
   ]{_zone_separation/base<1->.pdf}%
-  \graph{hist_in}{1-2}%
-  \graph{fit_gauss}{2}%
-  \graph{separation}{3-}%
+  \graph{distrib_IN}{1-2}%
+  \graph{fit}{2}%
+  \graph{threshold}{3-}%
+  \graph{base_top}{1-}%
+
+  \datenote[left]{23 février 2020}
 \end{frame}
 \endgroup
 
@@ -507,7 +480,8 @@
   \vfill
   \begin{itemize}
     \setlength{\itemsep}{\stretch{1}}
-    \item yeah
+    \item augmentation \emph{importante} de chl-a dans les fronts
+    \item plus importante dans les fronts \emph{forts}
   \end{itemize}
   \vfill
 
@@ -538,10 +512,33 @@
 
 %% --------------------------------------
 
+
+\begingroup
+\newcommand\graph[2]{%
+    \llap{\includegraphics<#2>[
+    width=\textwidth, height=0.8\textheight, keepaspectratio
+    ]{_phenologie_méthode/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Chronométrer le bloom: démarrage et durée}
-  \multigraph[width=\textwidth, height=0.8\textheight, keepaspectratio]{9}{phenologie_méthode}
+  \includegraphics[
+    width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{_phenologie_méthode/base<1->.pdf}%
+  \graph{dchl}{4-}%
+  \graph{xlabels_top}{2,3}%
+  \graph{chl_daily}{2-}%
+  \graph{chl_filtre}{3-}%
+  \graph{step_max}{5-}%
+  \graph{onset}{6-}%
+  \graph{onset_short}{6}%
+  \graph{onset_uncertainty}{7-}%
+  \graph{fin_bloom}{8-}%
+  \graph{fin_bloom_short}{8}%
+  \graph{fin_uncertainty}{9-}%
+  \graph{base_axes_top}{2-}%
+  \graph{chl}{1-3}%
+  \graph{pointer}{2,3}%
 \end{frame}
+\endgroup
 
 %% --------------------------------------
 
@@ -595,6 +592,18 @@
 
 %% --------------------------------------
 
+\begin{frame}
+  \frametitle{Conclusion partie 3}
+  \begin{itemize}
+          \setlength{\itemsep}{3em}
+    \item quantification de l'avance du bloom dans les \emph{fronts} (d'une à deux semaines)
+    \item pas d'effet significatif sur la durée du bloom
+    \item sensibilité à la fenêtre d'observation
+  \end{itemize}
+\end{frame}
+
+%% --------------------------------------
+
 \section{Conclusions}
 
 \begin{frame}
@@ -623,44 +632,6 @@
 \end{frame}
 
 \appendix
-
-{
-\newcommand\graphstep[2]{%
-  \llap{\includegraphics<#2>[width=\textwidth]{obtention_médianes/#1<#2>.pdf}}}%
-\begin{frame}
-  \frametitle{Mesures de l'effet des fronts}
-  \includegraphics[width=\textwidth]{obtention_médianes/base<1->.pdf}%
-  \graphstep{SST}{1-2}%
-  \graphstep{regions}{3-4}%
-  \graphstep{HI}{5}%
-  \graphstep{fronts_delineation}{5-7}%
-  \graphstep{fronts_colors}{6-7}%
-  \graphstep{separation}{2}%
-  \graphstep{bathymetrie}{8-12}%
-  \graphstep{bathy_title}{8-10}%
-  \graphstep{static_title}{11-12}%
-  \graphstep{limit_bathy}{10}%
-  \graphstep{static_limits}{9-10}%
-  \graphstep{static_mask}{11-12}%
-  \graphstep{chla}{13-}%
-  \graphstep{appl_static}{14-}%
-  \graphstep{appl_region}{15-}%
-  \graphstep{appl_front}{16-}%
-  \graphstep{appl_front_hi}{16-17}%
-  \graphstep{appl_front_low}{18}%
-  \graphstep{appl_front_mid}{19}%
-  \graphstep{histogrammes_axes}{17-}%
-  \graphstep{histogramme_low}{18-}%
-  \graphstep{histogramme_mid}{19-}%
-  \graphstep{histogramme_hi}{17-}%
-  \graphstep{frame}{1-}%
-  \graphstep{hist_arrow}{17}%
-  \graphstep{threshold_arrow}{2}%
-  \graphstep{smoll_regions}{4-}%
-  \graphstep{smoll_fronts}{7-}%
-  \graphstep{smoll_static}{12-}%
-\end{frame}
-}
 
 
 \end{document}
