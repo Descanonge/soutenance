@@ -23,6 +23,9 @@
 \begin{document}
 
 %% Title frame --------------------------
+
+% ne pas hésiter à dire je
+
 {
   \usebackgroundtemplate{
     \parbox[t][\paperheight]{\paperwidth}{
@@ -39,6 +42,9 @@
 \subsection{Le phytoplancton}
 
 %% --------------------------------------
+
+% -premier maillon chaîne alimentaire
+% -export compensé par apport nutriment à grande échelle surtout, et complété dans les fronts fine échelle
 
 \begingroup
 \newcommand\graph[2]{%
@@ -64,6 +70,9 @@
 
 \subsection{Influence des courants}
 
+% -zone d'upwelling à grande échelle
+% -contrairement zone où apport plus faible
+
 \begin{frame}
   \frametitle{Variabilité du phytoplancton: grande échelle}
   \includegraphics<1>[
@@ -85,6 +94,8 @@
 \end{frame}
 
 %% --------------------------------------
+
+% -cas d'école
 
 \begin{frame}
   \frametitle{Variabilité du phyplancton: front de sub-mésoéchelle}
@@ -118,6 +129,8 @@
 \section*{Introduction}
 
 %% --------------------------------------
+
+% -in-situ: plusieurs mesures à différentes profondeurs
 
 \begingroup
 \NewDocumentCommand\graph{O{#3} m m}{%
@@ -246,7 +259,7 @@
   \frametitle{Modification de la phénologie du bloom}
 
   \begin{block}{}
-    modèle biogéochimique régional
+    Modèle numérique biogéochimique régional
     \begin{itemize}
       \item run avec fronts (en noir)
             \\\(\rightarrow\) correspond aux observations (\textcolor{red}{en rouge})
@@ -278,6 +291,10 @@
 \end{frame}
 
 %% --------------------------------------
+
+% -anomalie chaude = Gulf Stream
+% -correspond à délimitation biorégions
+% -plan de l'exposé, détailler point par point
 
 \begingroup
 \newcommand\graph[2]{%
@@ -313,6 +330,8 @@
 
 %% --------------------------------------
 
+% -structures résolues à 4km et +léger
+
 \begin{frame}
   \frametitle{Données utilisées: Chl-a}
 
@@ -331,6 +350,9 @@
 \end{frame}
 
 %% --------------------------------------
+
+% -même résolution que Chl
+% -Glorys: structures frontales ne sont pas positionnés aux bons endroits (décalages)
 
 \begin{frame}
   \frametitle{Données utilisées: SST}
@@ -356,24 +378,54 @@
 \begin{frame}
   \frametitle{Détecter les fronts par satellite}
 
-  \begin{block}{}
-    Plusieurs méthodes existantes:
-    \begin{itemize}
-            \setlength{\itemsep}{1.2em}
-      \item “simple” dérivation: gradient, Sobel, Laplacien, \dots
-      \item filtrage préalable: Canny (1986), Belkin--O'Reilly (2009)
-      \item fenêtre glissante: Cayula--Cornillon (1992), Nieto et al. (2012), Miller (2009), \strong{Liu \& Levine (2016)}
-    \end{itemize}
-  \end{block}
+  \begin{columns}[t]
+    \begin{column}{0.45\textwidth}
+      \begin{itemize}
+        \item détection d'une \emph{frontière}:
+      \end{itemize}
+
+      \begin{center}
+        \includegraphics[width=0.7\linewidth]{nieto_2012.pdf}
+
+        \vspace{0.5em}
+
+        Canny, Cayula--Cornillon, \textsb<1>{Nieto}, Miller, \ldots
+      \end{center}
+    \end{column}
+
+    \visible<2->{
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}
+        \item détection d'une \emph{zone frontale}:
+      \end{itemize}
+
+      \begin{center}
+        \includegraphics[width=\linewidth]{front_exemple_zone.pdf}
+
+        \vspace{0.5em}
+
+        Belkin--O'Reilly, \emph{Liu \& Levine 2016}
+      \end{center}
+    \end{column}}
+  \end{columns}
 \end{frame}
 
 %% --------------------------------------
+
+% -on voit à l'oeil nu qu'un seuil à 5 permet de bien délimiter
 
 \begingroup
 \newcommand\graphstep[2]{%
   \llap{\includegraphics<#2>[width=\textwidth]{_composantes/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Détection des fronts: méthode du “Heterogeneity-Index” (HI)}
+
+  \begin{itemize}
+    \item Application d'une fenêtre glissante sur SST
+          % (taille \qtyrange{10}{30}{\km})
+  \end{itemize}
+
+  \vfill
 
   \includegraphics[width=\textwidth]{_composantes/base<1->.pdf}%
   \graphstep{composantes}{2-3}%
@@ -395,6 +447,8 @@
 \end{frame}
 
 %% --------------------------------------
+
+% -j'ai choisi 2 seuils qui donnent répartition suivante:
 
 \begingroup
 \newcommand\graph[2]{%
@@ -479,11 +533,11 @@
         \item taille de la fenêtre glissante (10km vs 30km) ?
       \end{itemize}
       \visible<2->{
-        {\centering
+        \begin{center}
           \includegraphics[height=3cm]{ts_sensitivity.pdf}
-        }
-        \\
-        excès peu sensibles à la taille (\pct{<15} de variation)
+          \\
+          excès peu sensibles à la taille (\pct{<15} de variation)
+        \end{center}
       }
     \end{column}
 
@@ -491,24 +545,39 @@
       \begin{itemize}
         \item Correction du biais de grande échelle ?
       \end{itemize}
-      \visible<3->{\includegraphics[height=4cm]{biais_gradient.pdf}
-        \\
-      surestimation si non corrigé}
+
+      \visible<3->{
+        \begin{center}
+          \includegraphics[height=4cm]{biais_gradient.pdf}
+          \\
+          surestimation si non corrigé
+        \end{center}
+      }
     \end{column}
   \end{columns}
 \end{frame}
 
 %% --------------------------------------
 
+% -exces pas suffisant
+% -il faut tenir compte de la surface des fronts
+
 \begin{frame}
   \frametitle{Effet régional sur la chl-a}
-  \includegraphics[width=\textwidth]{surplus.pdf}%
+
+  \begin{itemize}
+    \item Tenir compte de la surface des fronts
+  \end{itemize}
+
+  \includegraphics[width=\textwidth]{_surplus/base<1->.pdf}%
+  \llap{\includegraphics<2->[width=\textwidth]{_surplus/surplus<2->.pdf}}%
 
   \vfill
 
+  \visible<2->{
   \begin{itemize}
     \item effet des fronts très faible à l'échelle régionale
-  \end{itemize}
+  \end{itemize}}
 \end{frame}
 
 %% --------------------------------------
@@ -520,10 +589,10 @@
             \setlength{\itemsep}{3em}
       \item augmentation locale de la Chl-a~(\pct{\approx 10})
             \begin{itemize}
-              \item apport vertical de nutriments par les fronts
+              \item[$\longrightarrow$] apport vertical de nutriments par les fronts
             \end{itemize}
-      \item importance de corriger biais de grande échelle
-      \item effet régional faible si surface des fronts prise en compte~(\pct{\approx 3})
+      \item important de corriger biais de grande échelle
+      \item effet régional faible si la surface des fronts prise en compte~(\pct{\approx 3})
     \end{itemize}
   \end{minipage}
 \end{frame}
@@ -597,8 +666,8 @@
     \setlength{\itemsep}{1em}
     \item augmentation de chl-a beaucoup plus importante dans les fronts forts
           \begin{itemize}
-            \item circulation plus profonde
-            \item nutrient stream
+            \item[$\longrightarrow$] circulation plus profonde
+            \item[$\longrightarrow$] nutrient stream
           \end{itemize}
     \item effet à l'échelle régionale comparable entre fronts forts et faibles
   \end{itemize}
@@ -718,7 +787,7 @@
           \setlength{\itemsep}{3em}
     \item détection d'une avance du bloom dans les \emph{fronts} d'une à deux semaines
           \begin{itemize}
-            \item effet des fronts sur la stratification
+            \item[$\longrightarrow$] effet des fronts sur la stratification
           \end{itemize}
     \item pas d'effet significatif sur la durée du bloom
   \end{itemize}
@@ -732,7 +801,10 @@
 \begin{frame}
   \boxtitle{Conclusions}
 
+  \vspace{\stretch{2}}
+
   \begin{itemize}
+          \setlength{\itemsep}{0.8em}
     \item Quantification à l'échelle régionale de l'effet des fines échelles
     \item Effet plus important dans la région subpolaire
           % \begin{itemize}
@@ -741,7 +813,11 @@
           % \end{itemize}
   \end{itemize}
 
+  \vspace{\stretch{1}}
+
   \includegraphics[height=0.6\textheight]{article_review.pdf}
+
+  \vspace{\stretch{1}}
 \end{frame}
 
 \section{Perspectives}
@@ -751,10 +827,14 @@
 \begin{frame}
   \frametitle{Perspectives: Application à la composition du phytoplancton}
 
+  \begin{itemize}
+    \item cartes de concentration par groupe fonctionnel (PFT) obtenues par SOM (El Hourany et al. 2019)
+  \end{itemize}
+
   \includegraphics[width=0.7\textwidth]{ts_pft.pdf}
 
   \begin{itemize}
-    \item réponse différentes selon le groupe
+    \item[$\longrightarrow$] réponse différente selon le groupe
   \end{itemize}
 \end{frame}
 
@@ -777,16 +857,29 @@
 \begin{frame}
   \frametitle{Perspectives: outils pour la quantification des effets des fronts}
 
+  \begin{itemize}
+    \item quantification haute résolution sur grande surface
+    \item[$\lightning$] analyses complexes, exploratoires / itératives
+  \end{itemize}
+  {\usebeamercolor[fg]{structure}\(\Rightarrow\)} nécessité d'outils adaptés
   \vfill
-  \begin{block}{}
-    \begin{itemize}
-            \setlength{\itemsep}{1em}
-      \item tous les codes sont disponibles {\scriptsize (\url{https://gitlab.in2p3.fr/clement.haeck/submeso-color})}
-      \item projets extérieurs (filefinder, xarray-histogram, cf-xarray)
-      \item rendre plus facilement utilisable pour d'autres utilisateurs
-    \end{itemize}
-  \end{block}
+
+  \visible<2->{
+  \begin{itemize}
+    \item \num{11 000} lignes de codes + documentation
+          \\{\scriptsize (\url{https://gitlab.in2p3.fr/clement.haeck/submeso-color})}
+    \item packets python génériques:
+          \href{https://pypi.org/project/filefinder/}{{\footnotesize PyPi}:filefinder},
+          \href{https://pypi.org/project/tol-colors/}{{\footnotesize PyPi}:tol-colors}
+    \item participation à
+          \href{https://github.com/xarray-contrib/cf-xarray/pull/354}{cf-xarray}
+  \end{itemize}
+  }
+
   \vfill
+
+  \visible<3->{{\usebeamercolor[fg]{structure}\(\Rightarrow\)} Continuer à rendre plus facilement utilisable
+  \\pour d'autres utilisateurs}
 
 \end{frame}
 

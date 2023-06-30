@@ -39,14 +39,22 @@
 \DeclareRobustCommand\sbseries{\fontseries{sb}\selectfont}
 \DeclareTextFontCommand{\textsb}{\sbseries}
 
+\renewcommand<>\textsb[1]{{\only#2{\sbseries}#1}}
+
 % Use sans-serif math
 \RequirePackage[notosans]{newtxmath}
 
 % avert beamer from meddling with fonts
 \usefonttheme{professionalfonts}
 
+\RequirePackage{MnSymbol}
+
 \ExplSyntaxOn
 \RequirePackage{siunitx}
+\sisetup{
+  range-phrase=--,
+  range-units=single
+}
 \DeclareSIUnit \mgm {\milli\gram\per\cubic\metre}
 \DeclareSIUnit \octet {\text{o}}
 \DeclareSIUnit \MO {\mega\octet}
@@ -229,7 +237,7 @@
     \hfill
     \includegraphics[height=\logosheight]{Logos/ipsl.png}
     \hfill
-    \includegraphics[height=\logosheight]{Logos/logo_cnes_2017.png}
+    \includegraphics[height=\logosheight]{Logos/cnes.png}
     \hfill
     \includegraphics[height=\logosheight]{Logos/chanel_enspsl.png}
 
