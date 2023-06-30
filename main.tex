@@ -35,7 +35,7 @@
   \end{frame}
 }
 
-\section*{Introduction}
+\section*{Préambule}
 \subsection{Le phytoplancton}
 
 %% --------------------------------------
@@ -43,31 +43,20 @@
 \begingroup
 \newcommand\graph[2]{%
     \llap{\includegraphics<#2>[
-    height=0.85\textheight
+    height=0.85\textheight, trim=0 0 0 120, clip
     ]{_levy_2023_fig1/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Le phytoplancton dans le système terre}
-
-  \begin{columns}
-    \begin{column}{0.60\textwidth}
-      \includegraphics[height=0.85\textheight]{_levy_2023_fig1/base<1->.pdf}%
-      \graph{export}{2-}%
-      \graph{cycle}{3-}%
-      \graph{eddy_fluxes}{4-}%
-      \graph{sat}{5-}%
-      \graph{insitu}{6-}%
-      \graph{simulations}{7-}%
-      \graph{frame_bot}{1-}%
-      \graph{frame_top}{5-}%
-    \end{column}
-    \begin{column}{0.35\textwidth}
-      % \begin{itemize}
-      %   \item<2-> Mesures in-situ
-      %   \item<3-> Modèles numériques biogéochimiques
-      %   \item<4-> \emph{Images satellites}
-      % \end{itemize}
-    \end{column}
-  \end{columns}
+  \includegraphics[
+  height=0.85\textheight, trim=0 0 0 120, clip
+  ]{_levy_2023_fig1/base<1->.pdf}%
+  \graph{export}{2-}%
+  \graph{cycle}{3-}%
+  \graph{fronts}{4-}%
+  % \graph{sat}{5-}%
+  % \graph{insitu}{6-}%
+  % \graph{simulations}{7-}%
+  \graph{frame_bot}{1-}%
 \end{frame}
 \endgroup
 
@@ -76,36 +65,112 @@
 \subsection{Influence des courants}
 
 \begin{frame}
-  \frametitle{Influence des courants: Grande échelle}
+  \frametitle{Variabilité du phytoplancton: grande échelle}
   \includegraphics<1>[
     width=\textwidth, height=0.85\textheight, keepaspectratio
   ]{chl_month_avg.pdf}
-  \only<2>{
-    \includegraphics<2>[
-    width=\textwidth, height=0.85\textheight, keepaspectratio
-    ]{nutriments_global.pdf}
-    \\
-    \datenote{World Ocean Atlas 2018}
-  }
+  \\
+  \datenote[right]{\textit{moyenne sur mai 2023, Globcolour-Copernicus}}
 \end{frame}
 
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Échelles horizontales: vers la sub-mésoéchelle}
+  \frametitle{Variabilité du phytoplancton: (sub)mésoéchelle}
   % \begin{beamercolorbox}[sep=0pt, right]{}
     \includegraphics[height=0.8\textheight]{chl_snapshot_GS.pdf}
     \\
-    \datenote[right]{Chlorophylle-a L2 MODIS-Terra, 23 février 2020}
+    \datenote[right]{\textit{L2 MODIS-Terra, 23 février 2020}}
   % \end{beamercolorbox}
 \end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Variabilité du phyplancton: front de sub-mésoéchelle}
+
+  \includegraphics[width=0.8\textwidth]{front_exemple.pdf}
+  \\
+  \datenote[left]{\textit{22 avril 2007, \qtyproduct{\approx 150x150}{\km}}}
+
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+
+  \boxtitle{Problématique}
+
+  \vspace{3em}
+
+  {
+    \centering
+    \begin{onehalfspacing}
+      Quantifier la réponse de la chlorophylle-\textit{a}
+      \\aux dynamiques de fines échelles (\(\mathcal{O}\)(1--10\,km)),
+      \\dans un contexte grande échelle (\textit{ie} biorégions).
+      \\
+    \end{onehalfspacing}
+  }
+\end{frame}
+
+
+\section*{Introduction}
+
+%% --------------------------------------
+
+\begingroup
+\NewDocumentCommand\graph{O{#3} m m}{%
+    \llap{\includegraphics<#1>[
+    height=0.82\textheight
+    ]{_levy_2023_fig1/#2<#3>.pdf}}}%
+\begin{frame}
+  \frametitle{Approche: synopticité de l'imagerie satellitaire}
+
+  \begin{columns}
+    \begin{column}{0.48\textwidth}
+      \includegraphics[height=0.82\textheight]{_levy_2023_fig1/base<1->.pdf}%
+      \graph[1-]{export}{2-}%
+      \graph[1-]{cycle}{3-}%
+      \graph[1-]{fronts}{4-}%
+      \graph[1-]{sat}{5-}%
+      \graph[2-]{insitu}{6-}%
+      \graph[3-]{simulations}{7-}%
+      \graph[1-]{frame_bot}{1-}%
+      \graph[1-]{frame_top}{5-}%
+    \end{column}
+    \begin{column}{0.50\textwidth}
+      \small
+      \begin{itemize}
+        \item<1-> satellite:
+              \begin{description}[m]
+                \item[+] résolution 1km, journalière
+                \item[+] \emph{synoptique}
+                \item[--] en surface
+              \end{description}
+
+        \item<2-> in-situ:
+              \begin{description}[m]
+                \item[--] “ponctuelles”
+                \item[+] résolution en profondeur
+              \end{description}
+
+        \item<3-> Modèles numériques biogéochimiques
+              \begin{description}[m]
+                \item[--] résolution limitée en global
+              \end{description}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+\endgroup
 
 %% --------------------------------------
 
 \begingroup
 \newcommand\graph[2]{%
   \llap{\includegraphics<#2>[height=0.75\textheight]{_front_circulation/#1<#2>.pdf}}}%
-\begin{frame}<1-5>[label=frontogenese]
+\begin{frame}<1-2>[label=frontogenese]
   \frametitle{Impact des fronts sur la croissance du phytoplancton}
     \includegraphics[height=0.75\textheight]{_front_circulation/base<1->.pdf}%
     \graph{upwell}{5-}%
@@ -114,34 +179,60 @@
     \graph{vorticity}{3-}%
     \graph{circulation}{4-}%
     \graph{mld}{6}%
+    \frametitle<6->{Impact des fronts sur la stratification}
 \end{frame}
 
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Exemple de front}
+  \frametitle{Gulf Stream: un exemple de ‘nutrient stream’}
 
-  \includegraphics[width=6cm]{front_exemple.pdf}
-  \\
-  \datenote[left]{22 avril 2007}
-
+  \begin{itemize}
+    \item Apport de nutriments à grande échelle par le Gulf Stream
+  \end{itemize}
+  \begin{block}{}
+    \includegraphics[width=0.65\textwidth]{whitt_2019.pdf}
+    {\hspace{1em}\footnotesize\textit{\raisebox{2em}{Whitt 2019}}}
+  \end{block}
 \end{frame}
 
 %% --------------------------------------
 
+\againframe<3-5>{frontogenese}
+
+%% --------------------------------------
+
 \begin{frame}
-  \frametitle{Quantification de l'apport vertical de nutriments}
+  \frametitle{Quantification de l'apport en nutriment}
+  \begin{columns}
+    \begin{column}{0.5\linewidth}
+      \begin{itemize}
+        \item Variabilité de la Chl-a (satellite) en Océan Austral
+              \\
+              {\footnotesize\textit{Prend et al. 2022, Keerthi et al. 2022}}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\linewidth}
+      \includegraphics[width=\linewidth]{levy_2023_fig3.pdf}
+    \end{column}
+  \end{columns}
 
-  pleins d'études locales
+  \vspace*{2em}
 
-  \vspace{1em}
-
-  Sur toute la gyre subtropicale du Pacifique Nord:
-  \begin{minipage}{6cm}
-    \includegraphics[width=\linewidth]{liu_levine.png}%
-    \datenote[right]{\textit{Liu \& Levine 2016, fig.~3}}
-  \end{minipage}
-
+  \visible<2->{
+  \begin{columns}
+    \begin{column}{0.5\linewidth}
+      \begin{itemize}
+        \item Impact des fronts de SST sur Chl-a (Gyre Subtropicale du Pacifique Nord)
+              \\
+              {\footnotesize\textit{Liu \& Levine 2016}}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\linewidth}
+      \includegraphics[height=0.45\textheight]{liu_levine.png}
+    \end{column}
+  \end{columns}
+  }
 \end{frame}
 
 %% --------------------------------------
@@ -153,28 +244,34 @@
 
 \begin{frame}
   \frametitle{Modification de la phénologie du bloom}
-  seulement dans un modèle (même si forcé par observations)
 
   \begin{block}{}
-    \includegraphics[width=0.4\textwidth]{mahadevan_2012_fig3.pdf}
-    \\
-    Mahadevan et al.\ (2012)
+    modèle biogéochimique régional
+    \begin{itemize}
+      \item run avec fronts (en noir)
+            \\\(\rightarrow\) correspond aux observations (\textcolor{red}{en rouge})
+      \item<2-> run sans fronts (\textcolor{violet}{en violet})
+            \\\(\rightarrow\) bloom tardif (\qty{\approx 30}{\text{jours}})
+    \end{itemize}
   \end{block}
+
+  \includegraphics[width=0.5\textwidth]{mahadevan_2012_fig3.pdf}
+  {\hspace{1em}\footnotesize\textit{\raisebox{2em}{Mahadevan et al.\ 2012}}}
 \end{frame}
 
 %% --------------------------------------
 
-\subsection{Problématiques}
+\section{Objectifs}
 
 \begin{frame}
-  \boxtitle{Problématiques}
+  \boxtitle{Objectifs}
   \vspace{2em}
 
   \begin{beamercolorbox}[sep=0pt]{}
     \begin{enumerate}
       \setlength{\itemsep}{1.2em}
-      \item Comment quantifier la \emph{réponse de la chlorophylle-a} aux dynamiques \emph{frontales}
-      \item<2-> Influence de la \emph{saison}, du \emph{régime} biogéochimique, et de \emph{l’intensité} des fronts ?
+      \item Quantifier la \emph{réponse de la chlorophylle-a} aux dynamiques \emph{frontales}
+      \item<2-> Influence de la \emph{saison}, du \emph{régime} biogéochimique, et du \emph{type} de fronts ?
       \item<3-> Détecter un \emph{bloom précoce} dans les fronts ?
     \end{enumerate}
   \end{beamercolorbox}
@@ -200,6 +297,7 @@
   \graph{subpol}{6-}%
   \graph{subtrop_sais}{7-}%
   \graph{problematiques}{8-}%
+  \frametitle<8->{Plan}
 
   \datenote[right]{moyennes sur mai 2023}
 \end{frame}
@@ -216,42 +314,40 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Données utilisées: SST}
-
-  \begin{block}{Choisie dans la suite}
-    \begin{itemize}
-      \item ESA-SST-CCI / C3S
-      \item journalières, 4km
-      \item L4: interpolation spatiale de multicapteurs IR, pas de nuages
-    \end{itemize}
-  \end{block}
-
-  \vfill
-
-  \includegraphics[height=0.5\textheight]{comparaison_sst.pdf}%
-  \hspace{0.5cm}%
-  {\scriptsize (22 avril 2007)\par}
-
-\end{frame}
-
-%% --------------------------------------
-
-\begin{frame}
   \frametitle{Données utilisées: Chl-a}
 
-  \begin{block}{Choisie dans la suite}
+  \begin{block}{}
     \begin{itemize}
       \item Copernicus-Globcolour,
-      \item journalières, 4km
+      \item journalières, 4km, 2000--2020
       \item L3: multicapteurs, avec nuages
     \end{itemize}
   \end{block}
 
   \vfill
 
+  {\footnotesize\textit{\raisebox{2em}{22 avril 2007}}}
   \includegraphics[height=0.5\textheight]{comparaison_chl.pdf}%
-  \hspace{0.5cm}%
-  {\scriptsize (22 avril 2007)\par}
+\end{frame}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Données utilisées: SST}
+
+  \begin{block}{}
+    \begin{itemize}
+      \item proxy de la densité
+      \item ESA-SST-CCI / C3S
+      \item journalières, 4km, 2000--2020
+      \item L4: interpolation spatiale de multicapteurs IR, pas de nuages
+    \end{itemize}
+  \end{block}
+
+  \vfill
+
+  {\footnotesize\textit{\raisebox{2em}{22 avril 2007}}}
+  \includegraphics[height=0.5\textheight]{comparaison_sst.pdf}%
 
 \end{frame}
 
@@ -259,10 +355,6 @@
 
 \begin{frame}
   \frametitle{Détecter les fronts par satellite}
-
-  \begin{block}{}
-    On utilise la \strong{SST} comme proxy de la densité
-  \end{block}
 
   \begin{block}{}
     Plusieurs méthodes existantes:
@@ -282,9 +374,6 @@
   \llap{\includegraphics<#2>[width=\textwidth]{_composantes/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Détection des fronts: méthode du “Heterogeneity-Index” (HI)}
-  \begin{itemize}
-    \item en pratique, des fronts plus complexes qu'une \textsb{simple ligne}
-  \end{itemize}
 
   \includegraphics[width=\textwidth]{_composantes/base<1->.pdf}%
   \graphstep{composantes}{2-3}%
@@ -293,6 +382,30 @@
   \graphstep{contours}{3-}%
   \graphstep{contours_compo}{3}%
   \graphstep{contours_sst}{4-}%
+\end{frame}
+\endgroup
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Évolution de la chl-a avec le HI}
+  \includegraphics[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{results/chl_vs_hi.pdf}
+\end{frame}
+
+%% --------------------------------------
+
+\begingroup
+\newcommand\graph[2]{%
+  \llap{\includegraphics<#2>[height=0.8\textheight]{results/_fronts_occurrence/#1<#2>.pdf}}}%
+\begin{frame}
+  \frametitle{Cartes de probabilité de présence des fronts}
+  \includegraphics[height=0.8\textheight]{results/_fronts_occurrence/base<1->.pdf}%
+  \graph{delineation}{1-2}%
+  \graph{maps}{2-}%
+  \graph{fronts}{3-}%
+
 \end{frame}
 \endgroup
 
@@ -331,11 +444,9 @@
   \includegraphics[
     width=\textwidth, height=0.8\textheight, keepaspectratio
   ]{_distrib_region_perm/base<1->.pdf}%
-  \graphstep{latband}{2-}%
-  \graphstep{histogram}{3-}%
-  \graphstep{medianes}{4-}%
-
-  \datenote[left]{23 février 2020}
+  \graphstep{histogram}{2-}%
+  \graphstep{medianes}{3-}%
+  \graphstep{latband}{4-}%
 \end{frame}
 \endgroup
 
@@ -368,17 +479,21 @@
         \item taille de la fenêtre glissante (10km vs 30km) ?
       \end{itemize}
       \visible<2->{
-        \includegraphics[height=3cm]{ts_sensitivity.pdf}
+        {\centering
+          \includegraphics[height=3cm]{ts_sensitivity.pdf}
+        }
         \\
-        Résultats peu sensibles aux paramètres
+        excès peu sensibles à la taille (\pct{<15} de variation)
       }
     \end{column}
 
     \begin{column}{0.48\textwidth}
       \begin{itemize}
-        \item biais d'un gradient de grande échelle ?
+        \item Correction du biais de grande échelle ?
       \end{itemize}
-      \visible<3->{\includegraphics[height=3cm]{biais_gradient.pdf}}
+      \visible<3->{\includegraphics[height=4cm]{biais_gradient.pdf}
+        \\
+      surestimation si non corrigé}
     \end{column}
   \end{columns}
 \end{frame}
@@ -403,9 +518,12 @@
   \begin{minipage}{0.85\linewidth}
     \begin{itemize}
             \setlength{\itemsep}{3em}
-      \item détection d'une augmentation locale de la Chl-a~(\pct{\approx 10})
-      \item moins important l'estimation de Liu \& Levine (2016)~\pct{\approx 40})
-      \item effet global moindre lorsque l'on prend en compte la surface impactée~(\pct{\approx 3})
+      \item augmentation locale de la Chl-a~(\pct{\approx 10})
+            \begin{itemize}
+              \item apport vertical de nutriments par les fronts
+            \end{itemize}
+      \item importance de corriger biais de grande échelle
+      \item effet régional faible si surface des fronts prise en compte~(\pct{\approx 3})
     \end{itemize}
   \end{minipage}
 \end{frame}
@@ -448,6 +566,7 @@
   \graph{distrib_IN}{1-2}%
   \graph{fit}{2}%
   \graph{threshold}{3-}%
+  \graph{selection}{4-}%
   \graph{base_top}{1-}%
 
   \datenote[left]{23 février 2020}
@@ -457,52 +576,15 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Évolution de la chl-a avec le HI}
-  \includegraphics[
-  width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{results/chl_vs_hi.pdf}
-\end{frame}
-
-%% --------------------------------------
-
-\begin{frame}
-  \frametitle{Cartes de probabilité de présence des fronts}
-  \begin{overlayarea}{\textwidth}{0.25\textheight}
-    \centering
-    \includegraphics<1>{fronts_delineation.pdf}
-    \only<2>{
-      \vspace{1em}
-      \begin{minipage}{0.45\textwidth}
-        \centering
-        fronts faibles:\\ submésoéchelle, éphémères
-      \end{minipage}
-      \hfill
-      \begin{minipage}{0.45\textwidth}
-        \centering
-        fronts forts:\\ mésoéchelle, permanents
-      \end{minipage}
-    }
-    \\
-  \end{overlayarea}
-
-  \vfill
-
-  \includegraphics[
-  width=\textwidth, height=0.75\textheight, keepaspectratio
-  ]{results/fronts_occurrence.pdf}
-
+  \frametitle{Impact des fronts (faibles et forts) sur la Chl-a}
+  \includegraphics[width=\textwidth]{res_sais_exces.pdf}%
 \end{frame}
 
 %% --------------------------------------
 
 \begin{frame}
   \frametitle{Impact des fronts (faibles et forts) sur la Chl-a}
-  \includegraphics[
-  width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{_res_sais/base<1->.pdf}%
-  \llap{\includegraphics<2->[
-  width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{_res_sais/regional<2->.pdf}}%
+  \includegraphics[width=\textwidth]{res_sais_surplus.pdf}%
 \end{frame}
 
 %% --------------------------------------
@@ -512,10 +594,13 @@
 
   \vfill
   \begin{itemize}
-    \setlength{\itemsep}{\stretch{1}}
-    \item augmentation de chl-a d'autant plus importante dans les fronts forts
-    \item les fronts forts impactent une plus petite surface
-    \item en résulte un effet à l'échelle régionale comparable entre fronts forts et faibles
+    \setlength{\itemsep}{1em}
+    \item augmentation de chl-a beaucoup plus importante dans les fronts forts
+          \begin{itemize}
+            \item circulation plus profonde
+            \item nutrient stream
+          \end{itemize}
+    \item effet à l'échelle régionale comparable entre fronts forts et faibles
   \end{itemize}
   \vfill
 
@@ -628,12 +713,16 @@
 
 \begin{frame}
   \frametitle{Conclusion partie 3}
+  \vfill
   \begin{itemize}
           \setlength{\itemsep}{3em}
-    \item quantification de l'avance du bloom dans les \emph{fronts} (d'une à deux semaines)
+    \item détection d'une avance du bloom dans les \emph{fronts} d'une à deux semaines
+          \begin{itemize}
+            \item effet des fronts sur la stratification
+          \end{itemize}
     \item pas d'effet significatif sur la durée du bloom
-    \item sensibilité à la fenêtre d'observation
   \end{itemize}
+  \vfill
 \end{frame}
 
 %% --------------------------------------
@@ -641,20 +730,44 @@
 \section{Conclusions}
 
 \begin{frame}
-  \frametitle{Conclusions}
+  \boxtitle{Conclusions}
 
+  \begin{itemize}
+    \item Quantification à l'échelle régionale de l'effet des fines échelles
+    \item Effet plus important dans la région subpolaire
+          % \begin{itemize}
+          %   \item nutricline moins profonde
+          %   \item nutrient stream
+          % \end{itemize}
+  \end{itemize}
+
+  \includegraphics[height=0.6\textheight]{article_review.pdf}
+\end{frame}
+
+\section{Perspectives}
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Perspectives: Application à la composition du phytoplancton}
+
+  \includegraphics[width=0.7\textwidth]{ts_pft.pdf}
+
+  \begin{itemize}
+    \item réponse différentes selon le groupe
+  \end{itemize}
 \end{frame}
 
 %% --------------------------------------
 
-\section{Perspectives}
 \begin{frame}
-  \frametitle{Perspectives}
+  \frametitle{Perspectives: Application à l'échelle globale}
+
+  \includegraphics[height=0.7\textheight]{global_hi.pdf}
 
   \begin{itemize}
-    \item vers le global
-    \item vers les PFT (plus que déjà?)
-    \item nécessité de développer outils de détection de fronts
+    \item difficultés techniques: cette image = \qty{60}{\MO}
+          \\{\small(\mbox{20 ans = \qty{0.5}{\TO}} pour le HI seul)}
   \end{itemize}
 
 \end{frame}
@@ -662,7 +775,23 @@
 %% --------------------------------------
 
 \begin{frame}
-  Fin
+  \frametitle{Perspectives: outils pour la quantification des effets des fronts}
+
+  \vfill
+  \begin{block}{}
+    \begin{itemize}
+            \setlength{\itemsep}{1em}
+      \item tous les codes sont disponibles {\scriptsize (\url{https://gitlab.in2p3.fr/clement.haeck/submeso-color})}
+      \item projets extérieurs (filefinder, xarray-histogram, cf-xarray)
+      \item rendre plus facilement utilisable pour d'autres utilisateurs
+    \end{itemize}
+  \end{block}
+  \vfill
+
+\end{frame}
+
+\begin{frame}
+  Merci pour votre attention (et pour tout le reste) !
 \end{frame}
 
 \appendix

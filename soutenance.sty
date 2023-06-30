@@ -12,6 +12,8 @@
 \RequirePackage[english, main=french]{babel}
 \RequirePackage{csquotes}
 
+\RequirePackage{setspace}
+
 % \RequirePackage[backend=biber]{biblatex}
 
 %%% Fonts
@@ -40,9 +42,15 @@
 % Use sans-serif math
 \RequirePackage[notosans]{newtxmath}
 
+% avert beamer from meddling with fonts
+\usefonttheme{professionalfonts}
+
 \ExplSyntaxOn
 \RequirePackage{siunitx}
 \DeclareSIUnit \mgm {\milli\gram\per\cubic\metre}
+\DeclareSIUnit \octet {\text{o}}
+\DeclareSIUnit \MO {\mega\octet}
+\DeclareSIUnit \TO {\tera\octet}
 
 % Shortcut for percent value
 \NewDocumentCommand \pct { O{} m } {
@@ -97,6 +105,7 @@
     \keys_set:nn {beamerboxtitle}{#1}
     \use:c{\beamerboxtitle_align_tl}
     \setlength{\fboxsep}{\dim_use:N \beamerboxtitle_hpad_dim}
+    \only<1>{\bookmark[page=\the\c@page,level=4]{#2}}
     \usebeamercolor{box title}
     \colorbox{bg}{
       \color{fg}{
@@ -140,7 +149,8 @@
 \definecolor{tolgreen}{HTML}{009988}
 \definecolor{tolred}{HTML}{CC3311}
 \definecolor{tolyellow}{HTML}{CCBB44}
-\definecolor{greenteal}{HTML}{00B270}
+% \definecolor{greenteal}{HTML}{00B270}
+\definecolor{greenteal}{HTML}{00B2A8}
 
 % Define basic colors
 \setbeamercolor*{normal text}{fg=black}
@@ -218,6 +228,8 @@
     \includegraphics[height=\logosheight]{Logos/locean.png}
     \hfill
     \includegraphics[height=\logosheight]{Logos/ipsl.png}
+    \hfill
+    \includegraphics[height=\logosheight]{Logos/logo_cnes_2017.png}
     \hfill
     \includegraphics[height=\logosheight]{Logos/chanel_enspsl.png}
 
