@@ -118,7 +118,7 @@
     \centering
     \begin{onehalfspacing}
       Quantifier la réponse de la chlorophylle-\textit{a}
-      \\aux dynamiques de fines échelles (\(\mathcal{O}\)(1--10\,km)),
+      \\aux dynamiques de fines échelles (\(\mathcal{O}\)(10--30\,km)),
       \\dans un contexte grande échelle (\textit{ie} biorégions).
       \\
     \end{onehalfspacing}
@@ -216,16 +216,16 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Quantification de l'apport en nutriment}
+  \frametitle{Quantification}
   \begin{columns}
-    \begin{column}{0.5\linewidth}
+    \begin{column}{0.66\linewidth}
       \begin{itemize}
-        \item Variabilité de la Chl-a (satellite) en Océan Austral
+        \item Variabilité spatio-temporelle de la Chl-a (satellite) en Océan Austral
               \\
               {\footnotesize\textit{Prend et al. 2022, Keerthi et al. 2022}}
       \end{itemize}
     \end{column}
-    \begin{column}{0.5\linewidth}
+    \begin{column}{0.33\linewidth}
       \includegraphics[width=\linewidth]{levy_2023_fig3.pdf}
     \end{column}
   \end{columns}
@@ -444,6 +444,8 @@
   \includegraphics[
   width=\textwidth, height=0.8\textheight, keepaspectratio
   ]{results/chl_vs_hi.pdf}
+  \\
+  \datenote[right]{sur 2000-2020}
 \end{frame}
 
 %% --------------------------------------
@@ -644,17 +646,46 @@
 
 %% --------------------------------------
 
+\begingroup
+\newcommand\graph[2]{%
+  \llap{\includegraphics<#2>[width=\textwidth]{_res_sais_exces/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Impact des fronts (faibles et forts) sur la Chl-a}
-  \includegraphics[width=\textwidth]{res_sais_exces.pdf}%
+  \includegraphics[width=\textwidth]{_res_sais_exces/base<1->.pdf}%
+  \graph{exces}{2-}%
+
+  \vfill
+
+  \begin{itemize}
+    \item Effet local beaucoup plus important dans les \textcolor{plotfort}{fronts forts}
+  \end{itemize}
+
+  \begin{itemize}
+          \setlength{\itemindent}{2em}
+    \item<3->[$\longrightarrow$] impact du ‘nutrient stream’
+    \item<3->[$\longrightarrow$] circulations plus profondes
+  \end{itemize}
 \end{frame}
+\endgroup
 
 %% --------------------------------------
 
+\begingroup
+\newcommand\graph[2]{%
+  \llap{\includegraphics<#2>[width=\textwidth]{_res_sais_surplus/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Impact des fronts (faibles et forts) sur la Chl-a}
-  \includegraphics[width=\textwidth]{res_sais_surplus.pdf}%
+  \includegraphics[width=\textwidth]{_res_sais_surplus/base<1->.pdf}%
+  \graph{surplus}{2-}%
+
+  \vfill
+
+  \begin{itemize}
+    \item Les fronts forts occupent moins de \emph{surface}
+    \item<2-> Effet régional \emph{comparable} pour les fronts forts et faibles
+  \end{itemize}
 \end{frame}
+\endgroup
 
 %% --------------------------------------
 
@@ -711,7 +742,8 @@
   \includegraphics[
     width=\textwidth, height=0.8\textheight, keepaspectratio
   ]{_phenologie_méthode/base<1->.pdf}%
-  \graph{dchl}{4-}%
+  \graph{dchl_base}{4-}%
+  \graph{dchl}{4}%
   \graph{xlabels_top}{2,3}%
   \graph{chl_daily}{2-}%
   \graph{chl_filtre}{3-}%
@@ -722,7 +754,8 @@
   \graph{fin_bloom}{8-}%
   \graph{fin_bloom_short}{8}%
   \graph{fin_uncertainty}{9-}%
-  \graph{base_axes_top}{2-}%
+  \graph{dchl_axes_top}{4-}%
+  \graph{axes_top}{2-}%
   \graph{chl}{1-3}%
   \graph{pointer}{2,3}%
 \end{frame}
@@ -831,7 +864,9 @@
     \item cartes de concentration par groupe fonctionnel (PFT) obtenues par SOM (El Hourany et al. 2019)
   \end{itemize}
 
-  \includegraphics[width=0.7\textwidth]{ts_pft.pdf}
+  \vfill
+  \includegraphics[width=0.75\textwidth]{ts_pft.pdf}
+  \vfill
 
   \begin{itemize}
     \item[$\longrightarrow$] réponse différente selon le groupe
@@ -881,10 +916,6 @@
   \visible<3->{{\usebeamercolor[fg]{structure}\(\Rightarrow\)} Continuer à rendre plus facilement utilisable
   \\pour d'autres utilisateurs}
 
-\end{frame}
-
-\begin{frame}
-  Merci pour votre attention (et pour tout le reste) !
 \end{frame}
 
 \appendix
