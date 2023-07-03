@@ -141,7 +141,7 @@
   \frametitle{Approche: synopticité de l'imagerie satellitaire}
 
   \begin{columns}
-    \begin{column}{0.48\textwidth}
+    \begin{column}{0.55\textwidth}
       \includegraphics[height=0.82\textheight]{_levy_2023_fig1/base<1->.pdf}%
       \graph[1-]{export}{2-}%
       \graph[1-]{cycle}{3-}%
@@ -186,12 +186,12 @@
 \begin{frame}<1-2>[label=frontogenese]
   \frametitle{Impact des fronts sur la croissance du phytoplancton}
     \includegraphics[height=0.75\textheight]{_front_circulation/base<1->.pdf}%
-    \graph{upwell}{5-}%
+    \graph{upwell}{6-}%
     \graph{isopycnals}{1-}%
     \graph{jet}{2-}%
     \graph{vorticity}{3-}%
     \graph{circulation}{4-}%
-    \graph{mld}{6}%
+    \graph{mld}{5-}%
     \frametitle<6->{Impact des fronts sur la stratification}
 \end{frame}
 
@@ -216,7 +216,31 @@
 %% --------------------------------------
 
 \begin{frame}
-  \frametitle{Quantification}
+  \frametitle{Modification de la phénologie du bloom}
+
+  \begin{block}{}
+    Modèle numérique biogéochimique régional
+    \begin{itemize}
+      \item run avec fronts (en noir)
+            \\\(\rightarrow\) correspond aux observations (\textcolor{red}{en rouge})
+      \item<2-> run sans fronts (\textcolor{violet}{en violet})
+            \\\(\rightarrow\) bloom tardif (\qty{\approx 30}{\text{jours}})
+    \end{itemize}
+  \end{block}
+
+  \includegraphics[width=0.5\textwidth]{mahadevan_2012_fig3.pdf}
+  {\hspace{1em}\footnotesize\textit{\raisebox{2em}{Mahadevan et al.\ 2012}}}
+\end{frame}
+
+%% --------------------------------------
+
+\againframe<6>{frontogenese}
+\endgroup
+
+%% --------------------------------------
+
+\begin{frame}
+  \frametitle{Quantification à grande échelle}
   \begin{columns}
     \begin{column}{0.66\linewidth}
       \begin{itemize}
@@ -246,30 +270,6 @@
     \end{column}
   \end{columns}
   }
-\end{frame}
-
-%% --------------------------------------
-
-\againframe<6>{frontogenese}
-\endgroup
-
-%% --------------------------------------
-
-\begin{frame}
-  \frametitle{Modification de la phénologie du bloom}
-
-  \begin{block}{}
-    Modèle numérique biogéochimique régional
-    \begin{itemize}
-      \item run avec fronts (en noir)
-            \\\(\rightarrow\) correspond aux observations (\textcolor{red}{en rouge})
-      \item<2-> run sans fronts (\textcolor{violet}{en violet})
-            \\\(\rightarrow\) bloom tardif (\qty{\approx 30}{\text{jours}})
-    \end{itemize}
-  \end{block}
-
-  \includegraphics[width=0.5\textwidth]{mahadevan_2012_fig3.pdf}
-  {\hspace{1em}\footnotesize\textit{\raisebox{2em}{Mahadevan et al.\ 2012}}}
 \end{frame}
 
 %% --------------------------------------
@@ -454,10 +454,10 @@
 
 \begingroup
 \newcommand\graph[2]{%
-  \llap{\includegraphics<#2>[height=0.8\textheight]{results/_fronts_occurrence/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[height=0.88\textheight]{results/_fronts_occurrence/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Cartes de probabilité de présence des fronts}
-  \includegraphics[height=0.8\textheight]{results/_fronts_occurrence/base<1->.pdf}%
+  \includegraphics[height=0.88\textheight]{results/_fronts_occurrence/base<1->.pdf}%
   \graph{delineation}{1-2}%
   \graph{maps}{2-}%
   \graph{fronts}{3-}%
@@ -697,8 +697,8 @@
     \setlength{\itemsep}{1em}
     \item augmentation de chl-a beaucoup plus importante dans les fronts forts
           \begin{itemize}
-            \item[$\longrightarrow$] circulation plus profonde
             \item[$\longrightarrow$] nutrient stream
+            \item[$\longrightarrow$] circulation plus profonde
           \end{itemize}
     \item effet à l'échelle régionale comparable entre fronts forts et faibles
   \end{itemize}
