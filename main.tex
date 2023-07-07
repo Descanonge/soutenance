@@ -55,7 +55,7 @@
   \frametitle{Le phytoplancton dans le système terre}
   \includegraphics[
   height=0.85\textheight, trim=0 0 0 120, clip
-  ]{_levy_2023_fig1/base<1->.pdf}%
+  ]{levy_2023_fig1/transparent/base<1->.pdf}%
   \graph{export}{2-}%
   \graph{cycle}{3-}%
   \graph{fronts}{4-}%
@@ -100,7 +100,7 @@
 \begin{frame}
   \frametitle{Variabilité du phyplancton: front de sub-mésoéchelle}
 
-  \includegraphics[width=0.8\textwidth]{front_exemple.pdf}
+  \includegraphics[width=0.8\textwidth]{front_exemple/front_exemple.pdf}
   \\
   \datenote[left]{\textit{22 avril 2007, \qtyproduct{\approx 150x150}{\km}}}
 
@@ -136,13 +136,13 @@
 \NewDocumentCommand\graph{O{#3} m m}{%
     \llap{\includegraphics<#1>[
     height=0.82\textheight
-    ]{_levy_2023_fig1/#2<#3>.pdf}}}%
+    ]{levy_2023_fig1/transparent/#2<#3>.pdf}}}%
 \begin{frame}
   \frametitle{Approche: synopticité de l'imagerie satellitaire}
 
   \begin{columns}
     \begin{column}{0.55\textwidth}
-      \includegraphics[height=0.82\textheight]{_levy_2023_fig1/base<1->.pdf}%
+      \includegraphics[height=0.82\textheight]{levy_2023_fig1/transparent/base<1->.pdf}%
       \graph[1-]{export}{2-}%
       \graph[1-]{cycle}{3-}%
       \graph[1-]{fronts}{4-}%
@@ -182,10 +182,10 @@
 
 \begingroup
 \newcommand\graph[2]{%
-  \llap{\includegraphics<#2>[height=0.75\textheight]{_front_circulation/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[height=0.75\textheight]{front_circulation/transparent/#1<#2>.pdf}}}%
 \begin{frame}<1-2>[label=frontogenese]
   \frametitle{Impact des fronts sur la croissance du phytoplancton}
-    \includegraphics[height=0.75\textheight]{_front_circulation/base<1->.pdf}%
+    \includegraphics[height=0.75\textheight]{front_circulation/transparent/base<1->.pdf}%
     \graph{upwell}{6-}%
     \graph{isopycnals}{1-}%
     \graph{jet}{2-}%
@@ -204,7 +204,7 @@
     \item Apport de nutriments à grande échelle par le Gulf Stream
   \end{itemize}
   \begin{block}{}
-    \includegraphics[width=0.65\textwidth]{whitt_2019.pdf}
+    \includegraphics[width=0.65\textwidth]{whitt_2019/whitt_2019.pdf}
     {\hspace{1em}\footnotesize\textit{\raisebox{2em}{Whitt 2019}}}
   \end{block}
 \end{frame}
@@ -212,6 +212,7 @@
 %% --------------------------------------
 
 \againframe<3-5>{frontogenese}
+\endgroup
 
 %% --------------------------------------
 
@@ -234,7 +235,19 @@
 
 %% --------------------------------------
 
-\againframe<6>{frontogenese}
+\begingroup
+\newcommand\graph[2]{%
+  \llap{\includegraphics<#2>[height=0.75\textheight]{front_circulation/transparent/#1.pdf}}}%
+\begin{frame}
+  \frametitle{Impact des fronts sur la croissance du phytoplancton}
+    \includegraphics[height=0.75\textheight]{front_circulation/transparent/base<1->.pdf}%
+    \graph{upwell<6->}{2-}%
+    \graph{isopycnals<1->}{1-}%
+    \graph{jet<2->}{1-}%
+    \graph{vorticity<3->}{1-}%
+    \graph{mld<5->}{1-}%
+    \graph{circulation<4->}{1-}%
+\end{frame}
 \endgroup
 
 %% --------------------------------------
@@ -250,7 +263,7 @@
       \end{itemize}
     \end{column}
     \begin{column}{0.33\linewidth}
-      \includegraphics[width=\linewidth]{levy_2023_fig3.pdf}
+      \includegraphics[width=\linewidth]{levy_2023_fig3/levy_2023_fig3.pdf}
     \end{column}
   \end{columns}
 
@@ -300,12 +313,12 @@
 \newcommand\graph[2]{%
     \llap{\includegraphics<#2>[
     width=\textwidth, height=0.9\textheight, keepaspectratio
-    ]{_region_etude/#1<#2>.pdf}}}%
+    ]{région_étude/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Région d'étude: autour du Gulf Stream}
   \includegraphics[
   width=\textwidth, height=\textheight, keepaspectratio
-  ]{_region_etude/base_chl<1->.pdf}%
+  ]{région_étude/transparent/base_chl<1->.pdf}%
   \graph{base_sst}{1-7}%
   \graph{gulfstream}{2-7}%
   \graph{gyre}{3-7}%
@@ -385,7 +398,7 @@
       \end{itemize}
 
       \begin{center}
-        \includegraphics[width=0.7\linewidth]{nieto_2012.pdf}
+        \includegraphics[width=0.7\linewidth]{nieto_2012/nieto_2012.pdf}
 
         \vspace{0.5em}
 
@@ -400,7 +413,7 @@
       \end{itemize}
 
       \begin{center}
-        \includegraphics[width=\linewidth]{front_exemple_zone.pdf}
+        \includegraphics[width=\linewidth]{front_exemple/front_exemple_zone.pdf}
 
         \vspace{0.5em}
 
@@ -416,7 +429,7 @@
 
 \begingroup
 \newcommand\graphstep[2]{%
-  \llap{\includegraphics<#2>[width=\textwidth]{_composantes/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[width=\textwidth]{composantes/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Détection des fronts: méthode du “Heterogeneity-Index” (HI)}
 
@@ -427,7 +440,7 @@
 
   \vfill
 
-  \includegraphics[width=\textwidth]{_composantes/base<1->.pdf}%
+  \includegraphics[width=\textwidth]{composantes/transparent/base<1->.pdf}%
   \graphstep{composantes}{2-3}%
   \graphstep{chla}{1,4-}%
   \graphstep{HI}{2-}%
@@ -443,7 +456,7 @@
   \frametitle{Évolution de la chl-a avec le HI}
   \includegraphics[
   width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{results/chl_vs_hi.pdf}
+  ]{chl_vs_hi.pdf}
   \\
   \datenote[right]{sur 2000-2020}
 \end{frame}
@@ -454,10 +467,10 @@
 
 \begingroup
 \newcommand\graph[2]{%
-  \llap{\includegraphics<#2>[height=0.88\textheight]{results/_fronts_occurrence/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[height=0.88\textheight]{fronts_occurrence/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Cartes de probabilité de présence des fronts}
-  \includegraphics[height=0.88\textheight]{results/_fronts_occurrence/base<1->.pdf}%
+  \includegraphics[height=0.88\textheight]{fronts_occurrence/transparent/base<1->.pdf}%
   \graph{delineation}{1-2}%
   \graph{maps}{2-}%
   \graph{fronts}{3-}%
@@ -472,13 +485,13 @@
 \newcommand\graph[1]{%
     \llap{\includegraphics[
     width=\textwidth, height=0.9\textheight, keepaspectratio
-    ]{_region_etude/#1.pdf}}}%
+    ]{région_étude/transparent/#1.pdf}}}%
 \begin{frame}
   \boxtitle{Partie 1}
 
   \includegraphics[
   width=\textwidth, height=\textheight, keepaspectratio
-  ]{_region_etude/base_chl<1->.pdf}%
+  ]{région_étude/transparent/base_chl<1->.pdf}%
   \graph{subtrop_perm<5->}%
   \graph{subtrop_sais<7->}%
   \graph{subpol<6->}%
@@ -494,12 +507,12 @@
 \newcommand\graphstep[2]{%
   \llap{\includegraphics<#2>[
     width=\textwidth, height=0.8\textheight, keepaspectratio
-    ]{_distrib_region_perm/#1<#2>.pdf}}}%
+    ]{distrib_region_perm/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Mesure de l'impact des fronts}
   \includegraphics[
     width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{_distrib_region_perm/base<1->.pdf}%
+  ]{distrib_region_perm/transparent/base<1->.pdf}%
   \graphstep{histogram}{2-}%
   \graphstep{medianes}{3-}%
   \graphstep{latband}{4-}%
@@ -510,10 +523,10 @@
 
 \begingroup
 \newcommand\graphstep[2]{%
-  \llap{\includegraphics<#2>[height=0.8\textheight]{_res_perm/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[height=0.8\textheight]{res_perm_exces/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Augmentation locale de la chl-a}
-  \includegraphics[height=0.8\textheight]{_res_perm/base<1->.pdf}%
+  \includegraphics[height=0.8\textheight]{res_perm_exces/transparent/base<1->.pdf}%
   \graphstep{med_one_year}{1}%
   \graphstep{histogram}{1}%
   \graphstep{med_all_years}{2}%
@@ -550,7 +563,7 @@
 
       \visible<3->{
         \begin{center}
-          \includegraphics[height=4cm]{biais_gradient.pdf}
+          \includegraphics[height=4cm]{biais_gradient/biais_gradient.pdf}
           \\
           surestimation si non corrigé
         \end{center}
@@ -571,8 +584,8 @@
     \item Tenir compte de la surface des fronts
   \end{itemize}
 
-  \includegraphics[width=\textwidth]{_surplus/base<1->.pdf}%
-  \llap{\includegraphics<2->[width=\textwidth]{_surplus/surplus<2->.pdf}}%
+  \includegraphics[width=\textwidth]{res_perm_surplus/transparent/base<1->.pdf}%
+  \llap{\includegraphics<2->[width=\textwidth]{res_perm_surplus/transparent/surplus<2->.pdf}}%
 
   \vfill
 
@@ -606,13 +619,13 @@
 \newcommand\graph[1]{%
     \llap{\includegraphics[
     width=\textwidth, height=0.9\textheight, keepaspectratio
-    ]{_region_etude/#1.pdf}}}%
+    ]{région_étude/transparent/#1.pdf}}}%
 \begin{frame}
   \boxtitle{Partie 2}
 
   \includegraphics[
   width=\textwidth, height=\textheight, keepaspectratio
-  ]{_region_etude/base_chl<1->.pdf}%
+  ]{région_étude/transparent/base_chl<1->.pdf}%
   \graph{subtrop_perm<5->}%
   \graph{subtrop_sais<7->}%
   \graph{subpol<6->}%
@@ -628,12 +641,12 @@
 \newcommand\graph[2]{%
   \llap{\includegraphics<#2>[
     width=\textwidth, height=0.8\textheight, keepaspectratio
-    ]{_zone_separation/#1<#2>.pdf}}}%
+    ]{zone_separation/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Détection journalière du mur nord du Gulf Stream}
   \includegraphics[
   width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{_zone_separation/base<1->.pdf}%
+  ]{zone_separation/transparent/base<1->.pdf}%
   \graph{distrib_IN}{1-2}%
   \graph{fit}{2}%
   \graph{threshold}{3-}%
@@ -648,10 +661,10 @@
 
 \begingroup
 \newcommand\graph[2]{%
-  \llap{\includegraphics<#2>[width=\textwidth]{_res_sais_exces/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[width=\textwidth]{res_sais_exces/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Impact des fronts (faibles et forts) sur la Chl-a}
-  \includegraphics[width=\textwidth]{_res_sais_exces/base<1->.pdf}%
+  \includegraphics[width=\textwidth]{res_sais_exces/transparent/base<1->.pdf}%
   \graph{exces}{2-}%
 
   \vfill
@@ -672,10 +685,10 @@
 
 \begingroup
 \newcommand\graph[2]{%
-  \llap{\includegraphics<#2>[width=\textwidth]{_res_sais_surplus/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[width=\textwidth]{res_sais_surplus/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Impact des fronts (faibles et forts) sur la Chl-a}
-  \includegraphics[width=\textwidth]{_res_sais_surplus/base<1->.pdf}%
+  \includegraphics[width=\textwidth]{res_sais_surplus/transparent/base<1->.pdf}%
   \graph{surplus}{2-}%
 
   \vfill
@@ -713,13 +726,13 @@
 \newcommand\graph[1]{%
     \llap{\includegraphics[
     width=\textwidth, height=0.9\textheight, keepaspectratio
-    ]{_region_etude/#1.pdf}}}%
+    ]{région_étude/transparent/#1.pdf}}}%
 \begin{frame}
   \boxtitle{Partie 3}
 
   \includegraphics[
   width=\textwidth, height=\textheight, keepaspectratio
-  ]{_region_etude/base_chl<1->.pdf}%
+  ]{région_étude/transparent/base_chl<1->.pdf}%
   \graph{subtrop_perm<5->}%
   \graph{subtrop_sais<7->}%
   \graph{subpol<6->}%
@@ -736,12 +749,12 @@
 \newcommand\graph[2]{%
     \llap{\includegraphics<#2>[
     width=\textwidth, height=0.8\textheight, keepaspectratio
-    ]{_phenologie_méthode/#1<#2>.pdf}}}%
+    ]{phenologie_méthode/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Chronométrer le bloom: démarrage et durée}
   \includegraphics[
     width=\textwidth, height=0.8\textheight, keepaspectratio
-  ]{_phenologie_méthode/base<1->.pdf}%
+  ]{phenologie_méthode/transparent/base<1->.pdf}%
   \graph{dchl_base}{4-}%
   \graph{dchl}{4}%
   \graph{xlabels_top}{2,3}%
@@ -772,10 +785,10 @@
 
 \begingroup
 \newcommand\graph[2]{%
-  \llap{\includegraphics<#2>[height=0.7\textheight]{_bloom/#1<#2>.pdf}}}%
+  \llap{\includegraphics<#2>[height=0.7\textheight]{bloom_démarrage/transparent/#1<#2>.pdf}}}%
 \begin{frame}
   \frametitle{Décalage du \emph{\textit{démarrage}} du bloom}
-  \includegraphics[height=0.7\textheight]{_bloom/base<1->.pdf}%
+  \includegraphics[height=0.7\textheight]{bloom_démarrage/transparent/base<1->.pdf}%
   \graph{blue_error}{2-}%
   \graph{cyan_error}{3-}%
   \graph{orange_error}{4-}%
@@ -848,7 +861,7 @@
 
   \vspace{\stretch{1}}
 
-  \includegraphics[height=0.6\textheight]{article_review.pdf}
+  \includegraphics[height=0.6\textheight]{conclusion/conclusion.pdf}
 
   \vspace{\stretch{1}}
 \end{frame}
@@ -907,18 +920,105 @@
           \href{https://pypi.org/project/filefinder/}{{\footnotesize PyPi}:filefinder},
           \href{https://pypi.org/project/tol-colors/}{{\footnotesize PyPi}:tol-colors}
     \item participation à
-          \href{https://github.com/xarray-contrib/cf-xarray/pull/354}{cf-xarray}
+          \href{https://github.com/xarray-contrib/cf-xarray/pull/354}{{\footnotesize PyPi}:cf-xarray}
   \end{itemize}
   }
 
   \vfill
 
-  \visible<3->{{\usebeamercolor[fg]{structure}\(\Rightarrow\)} Continuer à rendre plus facilement utilisable
-  \\pour d'autres utilisateurs}
+  \visible<3->{{\usebeamercolor[fg]{structure}\(\Rightarrow\)} Continuer à développer ces outils,\\les rendre plus pratiques pour d'autres utilisateurs}
 
 \end{frame}
 
 \appendix
+
+\begin{frame}[plain]
+  \boxtitle{Annexes}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Récapitulatif}
+  \includegraphics[
+  width=\textwidth, height=0.9\textheight, keepaspectratio
+  ]{annexes/recap.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Climatologie de la médiane de SST}
+  \includegraphics[
+  width=\textwidth, height=0.9\textheight, keepaspectratio
+  ]{annexes/ts_cli_sst.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Climatologie de la médiane de Chl-a (Subtrop.\ perm.)}
+  \includegraphics[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{annexes/ts_latbands_S.pdf}
+\end{frame}
+\begin{frame}
+  \frametitle{Climatologie de la médiane de Chl-a (Subtrop.\ sais.)}
+  \includegraphics[
+  width=\textwidth, height=0.9\textheight, keepaspectratio
+  ]{annexes/ts_latbands_I.pdf}
+\end{frame}
+\begin{frame}
+  \frametitle{Climatologie de la médiane de Chl-a (Subpolaire)}
+  \includegraphics[
+  width=\textwidth, height=0.9\textheight, keepaspectratio
+  ]{annexes/ts_latbands_N.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Comparaison entre fronts détectés in-situ, par HI, ou par FSLE}
+  \includegraphics[
+  width=\textwidth, height=0.9\textheight, keepaspectratio
+  ]{annexes/comp_hi_fsle.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Variation temporelle de la délimitation des biomes}
+  Position de la séparation le 15 de chaque mois pour l'année 2007
+  \includegraphics[
+  width=\textwidth, height=0.8\textheight, keepaspectratio
+  ]{annexes/separation_evol_month.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Distribution des valeurs de HI}
+  \includegraphics[
+  width=\textwidth, height=0.7\textheight, keepaspectratio
+  ]{annexes/distrib_composantes.pdf}
+  \\
+  pour l'année 2007
+\end{frame}
+
+\begin{frame}
+  \frametitle{EKE dans la région du Gulf Stream}
+  \includegraphics[
+  width=\textwidth, height=0.7\textheight, keepaspectratio
+  ]{annexes/zhai_2008_fig1.jpg}
+  \\
+  \datenote{Zhai et al. 2008, fig. 1}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bathymétrie}
+  \includegraphics[
+  width=\textwidth, height=0.7\textheight, keepaspectratio
+  ]{annexes/bathymétrie.pdf}
+  \\
+  ETOPO1
+\end{frame}
+
+\begin{frame}
+  \frametitle{Délimitations de biomes}
+  \includegraphics[
+  width=\textwidth, height=0.7\textheight, keepaspectratio
+  ]{annexes/sarmiento_2004_fig2b.jpg}
+  \\
+  \datenote{Sarmiento et al. 2004, fig. 2b}
+\end{frame}
 
 
 \end{document}
