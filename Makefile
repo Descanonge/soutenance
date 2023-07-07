@@ -6,8 +6,6 @@ RES := resources
 REF := references
 
 MAIN := main
-PRESENT_TEX := .main_presentation
-HANDOUT_TEX := .main_handout
 
 AUXDIR_FLAGS := -auxdir="$(BUILD_DIR)" -emulate-aux-dir
 LMK_FLAGS := -lualatex -interaction=batchmode -recorder -quiet
